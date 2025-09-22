@@ -150,5 +150,13 @@ yarn-error.log*
 
 visitor-stats.json
 
+# Copy files and backups
+* copy.*
+*copy*
+
 CLAUDE.md
+.claude
 prd.md
+package-lock.json
+.gitignore
+*.copy*
