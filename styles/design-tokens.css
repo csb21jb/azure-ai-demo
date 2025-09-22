@@ -1,0 +1,291 @@
+/* Microsoft Design System - Design Tokens */
+:root {
+  /* Colors - Microsoft Fluent Design System */
+  --color-primary: #0078d4;
+  --color-primary-dark: #106ebe;
+  --color-primary-light: #40e0ff;
+  --color-primary-hover: #106ebe;
+  --color-primary-pressed: #005a9e;
+  
+  --color-secondary: #107c10;
+  --color-secondary-hover: #0e6e0e;
+  
+  --color-accent: #0078d4;
+  --color-accent-light: #deecf9;
+  
+  --color-warning: #ff8c00;
+  --color-warning-light: #fff4ce;
+
+  --color-error: #d13438;
+  --color-error-light: #fde7e9;
+
+  --color-success: #107c10;
+  --color-success-light: #dff6dd;
+
+  /* Enhanced Color Palette */
+  --color-purple: #6366f1;
+  --color-purple-light: #e0e7ff;
+  --color-purple-dark: #4338ca;
+
+  --color-pink: #ec4899;
+  --color-pink-light: #fce7f3;
+  --color-pink-dark: #be185d;
+
+  --color-teal: #14b8a6;
+  --color-teal-light: #ccfbf1;
+  --color-teal-dark: #0f766e;
+
+  --color-orange: #f97316;
+  --color-orange-light: #fed7aa;
+  --color-orange-dark: #c2410c;
+
+  --color-emerald: #10b981;
+  --color-emerald-light: #d1fae5;
+  --color-emerald-dark: #047857;
+
+  /* Gradient Colors */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-success: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  --gradient-warning: linear-gradient(135deg, #ff8a00 0%, #e52e71 100%);
+  --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-teal: linear-gradient(135deg, #14b8a6 0%, #0891b2 100%);
+  
+  /* Neutral Colors */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f3f2f1;
+  --color-neutral-300: #edebe9;
+  --color-neutral-400: #d2d0ce;
+  --color-neutral-500: #b3b0ad;
+  --color-neutral-600: #979593;
+  --color-neutral-700: #605e5c;
+  --color-neutral-800: #323130;
+  --color-neutral-900: #201f1e;
+  
+  /* Background Colors */
+  --color-background: #ffffff;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #f1f3f4;
+  --color-bg-overlay: rgba(0, 0, 0, 0.4);
+
+  /* Text Colors */
+  --color-text: #1a1a1a;
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #4a5568;
+  --color-text-tertiary: #718096;
+  --color-text-inverse: #ffffff;
+  --color-text-accent: #0078d4;
+  
+  /* Border Colors */
+  --color-border-primary: #d0d0d0;
+  --color-border-secondary: #e0e0e0;
+  --color-border-focus: #0078d4;
+  
+  /* Typography */
+  --font-family-primary: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+  --font-family-monospace: 'Consolas', 'Monaco', 'Courier New', monospace;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 3.75rem;   /* 60px */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Spacing Scale (8px base unit) */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+  --spacing-4xl: 6rem;     /* 96px */
+  --spacing-5xl: 8rem;     /* 128px */
+  
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem;   /* 2px */
+  --radius-md: 0.25rem;    /* 4px */
+  --radius-lg: 0.5rem;     /* 8px */
+  --radius-xl: 0.75rem;    /* 12px */
+  --radius-2xl: 1rem;      /* 16px */
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  
+  /* Microsoft Fluent Shadows */
+  --shadow-fluent-2: 0px 0.3px 0.9px rgba(0, 0, 0, 0.12), 0px 1.6px 3.6px rgba(0, 0, 0, 0.16);
+  --shadow-fluent-4: 0px 0.6px 1.8px rgba(0, 0, 0, 0.12), 0px 3.2px 7.2px rgba(0, 0, 0, 0.16);
+  --shadow-fluent-8: 0px 1.2px 3.6px rgba(0, 0, 0, 0.12), 0px 6.4px 14.4px rgba(0, 0, 0, 0.16);
+  --shadow-fluent-16: 0px 2.4px 7.2px rgba(0, 0, 0, 0.12), 0px 12.8px 28.8px rgba(0, 0, 0, 0.16);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-normal: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+  
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* Container Max Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+  
+  /* Animation Curves */
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  
+  /* Microsoft Fluent Motion */
+  --ease-accelerate: cubic-bezier(0.7, 0, 1, 0.5);
+  --ease-decelerate: cubic-bezier(0.1, 0.9, 0.2, 1);
+  --ease-standard: cubic-bezier(0.8, 0, 0.2, 1);
+  --ease-max: cubic-bezier(0.8, 0, 0.1, 1);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: #1e1e1e;
+    --color-bg-secondary: #2d2d30;
+    --color-bg-tertiary: #3e3e42;
+    
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #cccccc;
+    --color-text-tertiary: #999999;
+    
+    --color-neutral-100: #1e1e1e;
+    --color-neutral-200: #2d2d30;
+    --color-neutral-300: #3e3e42;
+    --color-neutral-400: #4f4f55;
+    --color-neutral-500: #6e6e73;
+    --color-neutral-600: #8e8e93;
+    --color-neutral-700: #aeaeb2;
+    --color-neutral-800: #d1d1d6;
+    --color-neutral-900: #ffffff;
+    
+    --color-border-primary: #4f4f55;
+    --color-border-secondary: #3e3e42;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #0066cc;
+    --color-text-primary: #000000;
+    --color-border-primary: #000000;
+    --shadow-md: 0 0 0 2px #000000;
+  }
+}
+
+/* Dark Mode Theme */
+[data-theme="dark"] {
+  /* Background Colors */
+  --color-background: #0a0a0a;
+  --color-bg-primary: #1a1a1a;
+  --color-bg-secondary: #2a2a2a;
+  --color-bg-tertiary: #3a3a3a;
+  --color-bg-overlay: rgba(255, 255, 255, 0.1);
+  
+  /* Text Colors */
+  --color-text: #ffffff;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1a6;
+  --color-text-tertiary: #8e8e93;
+  --color-text-inverse: #000000;
+  
+  /* Border Colors */
+  --color-border-primary: #3a3a3c;
+  --color-border-secondary: #2c2c2e;
+  --color-border-tertiary: #1c1c1e;
+  
+  /* Neutral Colors (dark variants) */
+  --color-neutral-100: #1c1c1e;
+  --color-neutral-200: #2c2c2e;
+  --color-neutral-300: #3a3a3c;
+  --color-neutral-400: #48484a;
+  --color-neutral-500: #636366;
+  --color-neutral-600: #8e8e93;
+  --color-neutral-700: #aeaeb2;
+  --color-neutral-800: #c7c7cc;
+  --color-neutral-900: #e5e5e7;
+  
+  /* Shadows for dark mode */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* Apply theme to body */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Chris Brown's AI Engineering portfolio showcasing Azure AI integration capabilities through interactive demos and real-world implementations">
+    <meta name="theme-color" content="#667eea">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>Chris Brown - AI Engineering Portfolio | Azure AI Integration Showcase</title>
+    
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    
+    <!-- Modern Font Stack -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/design-tokens.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/modern-design.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+
+    <!-- Enhanced Mobile & Tablet Responsive Styles -->
+    <style>
+        /* Viewport meta tag ensures proper scaling */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Mobile Styles (up to 767px) */
+        @media (max-width: 767px) {
+            /* Navigation mobile fixes */
+            .header {
+                top: 0 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .nav {
+                padding: 15px !important;
+                gap: 10px !important;
+            }
+
+            .nav__brand {
+                gap: 8px !important;
+            }
+
+            .nav__brand span {
+                font-size: 0.9rem !important;
+            }
+
+            .logo-container {
+                width: 32px !important;
+                height: 32px !important;
+            }
+
+            .nav__menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-bg, white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            .nav__menu.active {
+                display: flex;
+            }
+
+            .theme-toggle {
+                width: 54px !important;
+                height: 28px !important;
+            }
+
+            #themeToggleSlider {
+                width: 20px !important;
+                height: 20px !important;
+                top: 2px !important;
+            }
+
+            .theme-toggle svg {
+                width: 12px !important;
+                height: 12px !important;
+            }
+
+            /* Remove cards and use full width on mobile for demos */
+            .showcase--fullwidth .container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            .showcase__content {
+                padding: 0 !important;
+            }
+
+            .showcase__content--fullwidth {
+                padding: 0 !important;
+            }
+
+            .demo-section {
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 15px 10px !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .demo-card {
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 15px 10px !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .glass-card {
+                background: var(--color-bg, white) !important;
+                backdrop-filter: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+
+            /* Full width text generation container on mobile */
+            .text-generation-container {
+                width: 100% !important;
+                height: auto !important;
+                min-height: 400px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .text-generation-output {
+                min-height: 250px !important;
+                max-height: 400px !important;
+                margin: 10px 0 !important;
+                padding: 15px !important;
+                border-radius: 8px !important;
+                border: 1px solid var(--color-border, #e0e0e0) !important;
+            }
+
+            .text-generation-input {
+                padding: 10px !important;
+            }
+
+            /* Full width realtime container on mobile */
+            .realtime-container {
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .realtime-output {
+                min-height: 250px !important;
+                max-height: 400px !important;
+                margin: 10px 0 !important;
+                padding: 15px !important;
+                border-radius: 8px !important;
+                border: 1px solid var(--color-border, #e0e0e0) !important;
+            }
+
+            .realtime-input {
+                padding: 10px !important;
+            }
+
+            /* Showcase header mobile styles */
+            .showcase__header {
+                padding: 20px 15px !important;
+                text-align: center !important;
+            }
+
+            .showcase__title {
+                font-size: 1.5rem !important;
+                margin-bottom: 10px !important;
+            }
+
+            .showcase__description {
+                font-size: 0.9rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            .showcase__close {
+                position: absolute !important;
+                top: 10px !important;
+                right: 10px !important;
+                padding: 5px 10px !important;
+                font-size: 1.2rem !important;
+            }
+
+            /* Input and button adjustments for mobile */
+            .input-group {
+                padding: 0 10px !important;
+            }
+
+            .input-group__textarea {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+
+            .btn {
+                font-size: 14px !important;
+                padding: 10px 16px !important;
+            }
+
+            .btn--primary {
+                min-width: 44px !important;
+                min-height: 44px !important;
+            }
+
+            /* Chat message styling for mobile */
+            .generated-text-item,
+            .realtime-message,
+            .speech-recognition-message {
+                padding: 12px !important;
+                margin: 8px 0 !important;
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+            }
+
+            .generated-text-item strong,
+            .realtime-message strong,
+            .speech-recognition-message strong {
+                display: block !important;
+                margin-bottom: 5px !important;
+                font-size: 0.9rem !important;
+            }
+
+            /* Ensure chat bubbles use full width */
+            .chat-bubble {
+                max-width: 100% !important;
+                margin: 8px 0 !important;
+            }
+
+            /* Voice selection and other controls */
+            .voice-selection-tabs {
+                padding: 0 10px !important;
+            }
+
+            .voice-tabs {
+                flex-direction: column !important;
+                gap: 5px !important;
+            }
+
+            .voice-tab {
+                width: 100% !important;
+                padding: 10px !important;
+            }
+
+            #azureVoiceSelect {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+
+            /* Demo section titles and descriptions */
+            .demo-section__title {
+                font-size: 1.2rem !important;
+                margin-bottom: 8px !important;
+            }
+
+            .demo-section__description {
+                font-size: 0.85rem !important;
+                margin-bottom: 15px !important;
+            }
+
+            /* Hero section mobile */
+            .hero {
+                min-height: auto !important;
+                padding: 80px 15px 40px !important;
+            }
+
+            .hero__title-container {
+                flex-direction: column !important;
+                gap: 25px !important;
+                margin-bottom: 35px !important;
+            }
+
+            .hero__title {
+                font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+                line-height: 1.2 !important;
+                text-align: center !important;
+            }
+
+            .hero__subtitle {
+                font-size: 0.95rem !important;
+                line-height: 1.5 !important;
+                text-align: center !important;
+            }
+
+            .hero__attribution p {
+                font-size: 0.85rem !important;
+            }
+
+            .hero__attribution p:last-child {
+                font-size: 0.75rem !important;
+            }
+
+            /* Services section mobile */
+            .services {
+                padding: 60px 10px !important;
+            }
+
+            .section-header h2 {
+                font-size: 2rem !important;
+            }
+
+            .section-header p {
+                font-size: 0.95rem !important;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            .service-card {
+                padding: 30px 20px !important;
+                min-height: auto !important;
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .card-icon {
+                width: 60px !important;
+                height: 60px !important;
+                margin-bottom: 20px !important;
+            }
+
+            .card-icon svg {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            .service-card h3 {
+                font-size: 1.25rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.9rem !important;
+            }
+
+            .feature-badge {
+                font-size: 0.75rem !important;
+                padding: 4px 10px !important;
+            }
+
+            /* Demo section mobile */
+            .demos {
+                padding: 40px 0 !important;
+                background: none !important;
+            }
+
+            .demo-container {
+                padding: 0 !important;
+                border-radius: 0 !important;
+                background: var(--color-bg, white) !important;
+                box-shadow: none !important;
+                border: none !important;
+                min-height: auto !important;
+            }
+
+            .demo-placeholder {
+                padding: 30px 15px !important;
+            }
+
+            .demo-placeholder h3 {
+                font-size: 1.25rem !important;
+            }
+
+            .demo-placeholder p {
+                font-size: 0.9rem !important;
+            }
+
+            .icon-container {
+                width: 80px !important;
+                height: 80px !important;
+            }
+
+            .icon-container svg {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            /* Image generation specific mobile styles */
+            .image-generation-container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                padding: 10px !important;
+            }
+
+            .generated-image {
+                width: 100% !important;
+                height: auto !important;
+                max-height: 300px !important;
+                object-fit: cover !important;
+            }
+
+            /* Speech recognition mobile styles */
+            .speech-recognition-container {
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            .speech-recognition-output {
+                min-height: 200px !important;
+                margin: 10px 0 !important;
+                padding: 15px !important;
+            }
+
+            /* Action buttons mobile styles */
+            .chatgpt-actions,
+            .realtime-actions {
+                padding: 0 10px !important;
+                margin-bottom: 10px !important;
+            }
+
+            .chatgpt-actions button,
+            .realtime-actions button {
+                font-size: 0.85rem !important;
+                padding: 8px 12px !important;
+            }
+
+            /* Stats section mobile */
+            .stats {
+                padding: 60px 15px !important;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 25px !important;
+            }
+
+            .stat-number {
+                font-size: 2rem !important;
+            }
+
+            .stat-label {
+                font-size: 0.85rem !important;
+            }
+
+            /* Footer mobile */
+            .footer {
+                padding: 30px 15px !important;
+            }
+
+            .footer p {
+                font-size: 0.85rem !important;
+            }
+        }
+
+        /* Tablet Styles (768px to 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            /* Navigation tablet */
+            .nav {
+                padding: 15px 20px !important;
+            }
+
+            .nav__menu {
+                gap: 25px !important;
+            }
+
+            /* Hero section tablet */
+            .hero {
+                padding: 100px 30px 60px !important;
+            }
+
+            .hero__title-container {
+                flex-direction: row !important;
+                gap: 50px !important;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero__title {
+                font-size: clamp(2.25rem, 5vw, 3.5rem) !important;
+            }
+
+            .hero__subtitle {
+                font-size: 1.05rem !important;
+            }
+
+            /* Services section tablet */
+            .services {
+                padding: 80px 15px !important;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+            }
+
+            .service-card {
+                padding: 35px 25px !important;
+                width: 100% !important;
+            }
+
+            /* Stats section tablet */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            /* Demo section tablet */
+            .demo-container {
+                padding: 45px !important;
+            }
+        }
+
+        /* Small mobile devices (max-width: 375px) */
+        @media (max-width: 375px) {
+            .hero__title {
+                font-size: 1.5rem !important;
+            }
+
+            .services-grid {
+                padding: 0 5px !important;
+            }
+
+            .service-card {
+                padding: 20px 15px !important;
+            }
+
+            /* Even smaller padding for chat on very small screens */
+            .text-generation-output,
+            .realtime-output,
+            .speech-recognition-output {
+                padding: 10px !important;
+                font-size: 0.9rem !important;
+            }
+
+            .input-group {
+                padding: 0 5px !important;
+            }
+
+            .btn {
+                font-size: 13px !important;
+                padding: 8px 12px !important;
+            }
+
+            .demo-section__title {
+                font-size: 1.1rem !important;
+            }
+
+            .showcase__title {
+                font-size: 1.3rem !important;
+            }
+        }
+
+        /* Landscape orientation fixes */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                min-height: auto !important;
+                padding: 60px 20px 30px !important;
+            }
+
+            .hero__title {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        /* Mobile menu toggle button (show only on mobile) */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: currentColor;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-menu-toggle {
+                display: flex !important;
+            }
+
+            .nav__menu {
+                display: none !important;
+            }
+
+            .nav__actions {
+                gap: 10px !important;
+            }
+        }
+
+        /* Desktop and Large Screen Styles */
+        @media (min-width: 1024px) {
+            .services {
+                padding: 100px 30px !important;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 25px !important;
+                width: 100% !important;
+                max-width: none !important;
+            }
+
+            .service-card {
+                padding: 40px 30px !important;
+                width: 100% !important;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 30px !important;
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .services-grid {
+                grid-template-columns: repeat(5, 1fr) !important;
+                gap: 30px !important;
+            }
+        }
+
+        /* Ensure full width for all sections */
+        .container {
+            width: 100% !important;
+            max-width: none !important;
+            padding: 0 20px !important;
+        }
+
+        /* Remove any max-width constraints from services grid */
+        .services-grid {
+            max-width: none !important;
+            width: 100% !important;
+        }
+
+        /* Base theme styles */
+        html, body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Light mode (default) */
+        html[data-theme="light"],
+        html[data-theme="light"] body {
+            background-color: #ffffff !important;
+            color: #323130 !important;
+        }
+
+        html[data-theme="light"] .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        }
+
+        html[data-theme="light"] .services {
+            background: #faf9f8 !important;
+        }
+
+        html[data-theme="light"] .demos {
+            background: rgba(0, 0, 0, 0.02) !important;
+        }
+
+        /* Dark mode specific styles */
+        html[data-theme="dark"],
+        html[data-theme="dark"] body {
+            background-color: #0a0a0a !important;
+            color: #ffffff !important;
+        }
+
+        html[data-theme="dark"] .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%) !important;
+        }
+
+        html[data-theme="dark"] .services {
+            background: #0f0f0f !important;
+        }
+
+        html[data-theme="dark"] .demos {
+            background: #141414 !important;
+        }
+
+        html[data-theme="dark"] .stats {
+            background: #0a0a0a !important;
+        }
+
+        /* Additional dark mode overrides */
+        html[data-theme="dark"] .noise-overlay {
+            opacity: 0.05 !important;
+        }
+
+        /* Improved contrast for light mode */
+        html:not([data-theme="dark"]) .hero__subtitle {
+            color: #323130 !important; /* Much darker text for light mode */
+        }
+
+        html:not([data-theme="dark"]) .hero__attribution p:nth-child(2),
+        html:not([data-theme="dark"]) .hero__attribution p:nth-child(3) {
+            color: #484644 !important; /* Darker gray for better readability */
+            opacity: 1 !important; /* Remove opacity reduction */
+        }
+
+        /* Dark mode styles */
+        html[data-theme="dark"] .hero__title,
+        html[data-theme="dark"] .hero__subtitle,
+        html[data-theme="dark"] .hero__attribution p {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="dark"] .section-header h2,
+        html[data-theme="dark"] .section-header p {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="dark"] .heading-gradient {
+            background: linear-gradient(135deg, #8b9dc3 0%, #a8b9d3 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        html[data-theme="light"] .heading-gradient {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* Light mode explicit styles */
+        html[data-theme="light"] .header {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        html[data-theme="light"] .service-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .service-card h3 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .service-card p {
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .glass-card {
+            background: rgba(248, 249, 250, 0.95) !important;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        }
+
+        html[data-theme="light"] .footer {
+            background: #f5f5f5 !important;
+            color: #333333 !important;
+        }
+
+        /* Demo containers and sections - Light mode improvements */
+        html[data-theme="light"] .demo-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .demo-section {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #e8e8e8 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .demo-section h3,
+        html[data-theme="light"] .demo-section h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .demo-section p {
+            color: #555555 !important;
+        }
+
+        /* Chat and realtime containers - Light mode */
+        html[data-theme="light"] .text-generation-container,
+        html[data-theme="light"] .realtime-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .text-generation-output,
+        html[data-theme="light"] .realtime-output,
+        html[data-theme="light"] .speech-recognition-output {
+            background: rgba(248, 250, 252, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .text-generation-input,
+        html[data-theme="light"] .realtime-input {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-top: 1px solid #d0d0d0 !important;
+        }
+
+        /* Message items - Light mode */
+        html[data-theme="light"] .generated-text-item,
+        html[data-theme="light"] .realtime-message,
+        html[data-theme="light"] .speech-recognition-message {
+            background: rgba(245, 247, 250, 0.9) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .generated-text-item strong,
+        html[data-theme="light"] .realtime-message strong,
+        html[data-theme="light"] .speech-recognition-message strong {
+            color: #1a1a1a !important;
+        }
+
+        /* Input fields - Light mode */
+        html[data-theme="light"] .input-group__textarea,
+        html[data-theme="light"] .input-group__input {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .input-group__textarea::placeholder,
+        html[data-theme="light"] .input-group__input::placeholder {
+            color: #888888 !important;
+        }
+
+        html[data-theme="light"] .input-group__textarea:focus,
+        html[data-theme="light"] .input-group__input:focus {
+            border-color: #0078d4 !important;
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2) !important;
+        }
+
+        /* Section headers and placeholders - Light mode */
+        html[data-theme="light"] .section-header h2,
+        html[data-theme="light"] .section-header h3 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .section-header p {
+            color: #4a5568 !important;
+        }
+
+        html[data-theme="light"] .demo-placeholder p {
+            color: #4a5568 !important;
+        }
+
+        html[data-theme="light"] .demo-placeholder h3 {
+            color: #2d3748 !important;
+        }
+
+        /* Showcase containers - Light mode */
+        html[data-theme="light"] .showcase-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+        }
+
+        html[data-theme="light"] .showcase__content {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .showcase__title {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .showcase__description {
+            color: #555555 !important;
+        }
+
+        /* Audio and media controls - Light mode */
+        html[data-theme="light"] .audio-player-container,
+        html[data-theme="light"] .media-player-container {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .voice-select {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        /* Results and output areas - Light mode */
+        html[data-theme="light"] .results {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .results__title {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .results__content {
+            color: #555555 !important;
+        }
+
+        /* Additional light mode text improvements */
+        html[data-theme="light"] .demo-section__title {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .demo-section__description {
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .input-group__label {
+            color: #1a1a1a !important;
+        }
+
+        /* Chat and AI response improvements */
+        html[data-theme="light"] .chat-message--ai .chat-message__content {
+            background: rgba(248, 250, 252, 0.95) !important;
+            color: #333333 !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .chat-bubble--ai {
+            background: rgba(248, 250, 252, 0.95) !important;
+            color: #333333 !important;
+        }
+
+        /* Loading and error states - Light mode */
+        html[data-theme="light"] .loading {
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .error {
+            background: rgba(220, 53, 69, 0.1) !important;
+            border-color: rgba(220, 53, 69, 0.3) !important;
+            color: #721c24 !important;
+        }
+
+        html[data-theme="light"] .error__title,
+        html[data-theme="light"] .error__message {
+            color: #721c24 !important;
+        }
+
+        /* Ensure all headings have proper contrast */
+        html[data-theme="light"] h1,
+        html[data-theme="light"] h2,
+        html[data-theme="light"] h3,
+        html[data-theme="light"] h4,
+        html[data-theme="light"] h5,
+        html[data-theme="light"] h6 {
+            color: #1a1a1a !important;
+        }
+
+        /* Ensure all paragraphs have proper contrast */
+        html[data-theme="light"] p {
+            color: #333333 !important;
+        }
+
+        /* Ensure labels and form elements have proper contrast */
+        html[data-theme="light"] label {
+            color: #1a1a1a !important;
+        }
+
+        /* Demo card specific improvements for light mode */
+        html[data-theme="light"] .demo-card {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .demo-card .realtime-container,
+        html[data-theme="light"] .demo-card .text-generation-container {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        html[data-theme="light"] .demo-card .realtime-output,
+        html[data-theme="light"] .demo-card .text-generation-output {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        /* Specific styling for the realtime demo title and description */
+        html[data-theme="light"] .demo-card h3 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .demo-card p {
+            color: #555555 !important;
+        }
+
+        /* Button styling improvements for light mode */
+        html[data-theme="light"] .btn--primary {
+            background: #0078d4 !important;
+            color: #ffffff !important;
+            border: none !important;
+        }
+
+        html[data-theme="light"] .btn--primary:hover {
+            background: #106ebe !important;
+        }
+
+        html[data-theme="light"] .btn--ghost {
+            color: #333333 !important;
+            background: transparent !important;
+        }
+
+        html[data-theme="light"] .btn--ghost:hover {
+            background: rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Enhanced Audio Controls - Light Mode */
+        html[data-theme="light"] audio {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] audio::-webkit-media-controls-panel {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        html[data-theme="light"] audio::-webkit-media-controls-play-button {
+            background-color: #0078d4 !important;
+            color: white !important;
+        }
+
+        html[data-theme="light"] audio::-webkit-media-controls-timeline {
+            background-color: rgba(248, 250, 252, 0.8) !important;
+        }
+
+        html[data-theme="light"] audio::-webkit-media-controls-current-time-display,
+        html[data-theme="light"] audio::-webkit-media-controls-time-remaining-display {
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .audio-player-container,
+        html[data-theme="light"] .media-player-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        /* Enhanced Input Field Styling - Light Mode */
+        html[data-theme="light"] input,
+        html[data-theme="light"] textarea,
+        html[data-theme="light"] select {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        html[data-theme="light"] input:focus,
+        html[data-theme="light"] textarea:focus,
+        html[data-theme="light"] select:focus {
+            border-color: #0078d4 !important;
+            box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.1) !important;
+            background: rgba(255, 255, 255, 1) !important;
+        }
+
+        html[data-theme="light"] input::placeholder,
+        html[data-theme="light"] textarea::placeholder {
+            color: #888888 !important;
+        }
+
+        /* Enhanced Progress Bars - Light Mode */
+        html[data-theme="light"] .progress-bar {
+            background: rgba(240, 242, 247, 0.8) !important;
+            border-radius: 6px !important;
+        }
+
+        html[data-theme="light"] .progress-fill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border-radius: 6px !important;
+        }
+
+        /* Enhanced Color Accents for Light Mode */
+        html[data-theme="light"] .btn--primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        html[data-theme="light"] .btn--primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        html[data-theme="light"] .search-box:focus-within {
+            border-color: #667eea !important;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2), 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        html[data-theme="light"] .search-box__button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        /* ===== IMAGE GENERATION TOOL - LIGHT MODE ENHANCEMENTS ===== */
+
+        /* Image Generation Container */
+        html[data-theme="light"] .image-generation-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 12px !important;
+            padding: var(--spacing-lg) !important;
+        }
+
+        /* Image Generation Output Area */
+        html[data-theme="light"] .image-generation-output {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 12px !important;
+            color: #333333 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Image Placeholder Styling */
+        html[data-theme="light"] .image-placeholder {
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .image-placeholder h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .image-placeholder p {
+            color: #666666 !important;
+        }
+
+        html[data-theme="light"] .placeholder-icon {
+            opacity: 0.6 !important;
+            color: #888888 !important;
+        }
+
+        /* Generated Image Container */
+        html[data-theme="light"] .generated-image-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border-radius: 12px !important;
+            padding: var(--spacing-md) !important;
+        }
+
+        /* Generated Image Header */
+        html[data-theme="light"] .generated-image-header h4 {
+            color: #1a1a1a !important;
+        }
+
+        /* Image Actions Buttons */
+        html[data-theme="light"] .image-actions .btn--outline {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .image-actions .btn--outline:hover {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        /* Generated Image Display */
+        html[data-theme="light"] .generated-image {
+            border-radius: 12px !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        /* Image Metadata */
+        html[data-theme="light"] .generated-image-details {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] .metadata-item {
+            color: #555555 !important;
+        }
+
+        /* Image Generation Input Area */
+        html[data-theme="light"] .image-generation-input {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border-top: 1px solid #e0e0e0 !important;
+            padding: var(--spacing-lg) !important;
+        }
+
+        /* Sample Prompts Section */
+        html[data-theme="light"] .sample-prompts h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .sample-buttons .btn--outline {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        html[data-theme="light"] .sample-buttons .btn--outline:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(102, 126, 234, 0.15)) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        /* Generation Options */
+        html[data-theme="light"] .generation-options {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] .option-group label {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .option-group select {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .option-group select:focus {
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        /* Image Prompt Input */
+        html[data-theme="light"] #imagePrompt {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] #imagePrompt:focus {
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+            background: rgba(255, 255, 255, 1) !important;
+        }
+
+        html[data-theme="light"] #imagePrompt::placeholder {
+            color: #888888 !important;
+        }
+
+        /* Generate Button */
+        html[data-theme="light"] #generateImageBtn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        html[data-theme="light"] #generateImageBtn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        html[data-theme="light"] #generateImageBtn:disabled {
+            background: #cccccc !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* Generating State - Light Mode */
+        html[data-theme="light"] .generating-state {
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .generating-state h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .generating-state p {
+            color: #666666 !important;
+        }
+
+        html[data-theme="light"] .spinner {
+            border-color: rgba(102, 126, 234, 0.2) !important;
+            border-top-color: #667eea !important;
+        }
+
+        html[data-theme="light"] .spinner-small {
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            border-top-color: white !important;
+        }
+
+        /* Error State - Light Mode */
+        html[data-theme="light"] .error-state {
+            color: #721c24 !important;
+        }
+
+        html[data-theme="light"] .error-icon {
+            color: #dc3545 !important;
+        }
+
+        /* Image Grid (if used) - Light Mode */
+        html[data-theme="light"] .image-grid {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 12px !important;
+        }
+
+        /* Additional Image Generation Enhancements */
+        html[data-theme="light"] .image-generation-container .demo-section {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .image-generation-container .demo-section__title {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .image-generation-container .demo-section__description {
+            color: #555555 !important;
+        }
+
+        /* Image Generation Service Card Icon Enhancement */
+        html[data-theme="light"] .service-card[data-service="image-generation"] .service-card__icon {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%) !important;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4) !important;
+        }
+
+        html[data-theme="light"] .service-card[data-service="image-generation"] .feature-badge {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.25)) !important;
+            color: #7c3aed !important;
+            border: 1px solid rgba(139, 92, 246, 0.4) !important;
+            box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2) !important;
+        }
+
+        html[data-theme="light"] .service-card[data-service="image-generation"] .explore-btn {
+            color: #7c3aed !important;
+        }
+
+        html[data-theme="dark"] .header {
+            background: rgba(26, 26, 26, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        html[data-theme="dark"] .nav__brand span {
+            color: #ffffff !important;
+        }
+
+        html[data-theme="dark"] .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        html[data-theme="dark"] .nav-link:hover {
+            color: #667eea !important;
+        }
+
+        html[data-theme="dark"] .service-card {
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(55, 65, 81, 0.95) 100%) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+            color: #f7fafc !important;
+        }
+
+        html[data-theme="dark"] .service-card h3 {
+            color: #f7fafc !important;
+        }
+
+        html[data-theme="dark"] .service-card p {
+            color: rgba(229, 231, 235, 0.9) !important;
+        }
+
+        html[data-theme="dark"] .glass-card {
+            background: rgba(55, 65, 81, 0.9) !important;
+            border: 1px solid rgba(156, 163, 175, 0.2) !important;
+        }
+
+        html[data-theme="dark"] .demo-container {
+            background: rgba(31, 41, 55, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.2) !important;
+        }
+
+        html[data-theme="dark"] .text-generation-output,
+        html[data-theme="dark"] .realtime-output,
+        html[data-theme="dark"] .speech-recognition-output {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .input-group__textarea {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .input-group__textarea::placeholder {
+            color: rgba(156, 163, 175, 0.8) !important;
+        }
+
+        html[data-theme="dark"] .btn--primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+        }
+
+        html[data-theme="dark"] .btn--outline {
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        html[data-theme="dark"] .btn--ghost {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        html[data-theme="dark"] .feature-badge {
+            background: rgba(99, 102, 241, 0.3) !important;
+            color: #e0e7ff !important;
+            border: 1px solid rgba(99, 102, 241, 0.4) !important;
+        }
+
+        /* Enhanced Audio Controls - Dark Mode */
+        html[data-theme="dark"] audio {
+            background: rgba(42, 42, 42, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        html[data-theme="dark"] audio::-webkit-media-controls-panel {
+            background-color: rgba(42, 42, 42, 0.95) !important;
+        }
+
+        html[data-theme="dark"] audio::-webkit-media-controls-play-button {
+            background-color: #667eea !important;
+            color: white !important;
+        }
+
+        html[data-theme="dark"] audio::-webkit-media-controls-timeline {
+            background-color: rgba(75, 85, 99, 0.8) !important;
+        }
+
+        html[data-theme="dark"] audio::-webkit-media-controls-current-time-display,
+        html[data-theme="dark"] audio::-webkit-media-controls-time-remaining-display {
+            color: #f3f4f6 !important;
+        }
+
+        html[data-theme="dark"] .audio-player-container,
+        html[data-theme="dark"] .media-player-container {
+            background: rgba(42, 42, 42, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        /* Enhanced Progress Bars - Dark Mode */
+        html[data-theme="dark"] .progress-bar {
+            background: rgba(75, 85, 99, 0.6) !important;
+        }
+
+        html[data-theme="dark"] .progress-fill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        }
+
+        /* Enhanced Dark Mode Button Styling */
+        html[data-theme="dark"] .btn--primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+        }
+
+        html[data-theme="dark"] .btn--primary:hover {
+            background: linear-gradient(135deg, #7c8ce8 0%, #8a5bb0 100%) !important;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5) !important;
+        }
+
+        html[data-theme="dark"] .search-box:focus-within {
+            border-color: #667eea !important;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3), 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        /* ===== IMAGE GENERATION TOOL - DARK MODE ENHANCEMENTS ===== */
+
+        /* Image Generation Container */
+        html[data-theme="dark"] .image-generation-container {
+            background: rgba(42, 42, 42, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        /* Image Generation Output Area */
+        html[data-theme="dark"] .image-generation-output {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+            color: #f3f4f6 !important;
+        }
+
+        /* Image Placeholder Styling */
+        html[data-theme="dark"] .image-placeholder {
+            color: #d1d5db !important;
+        }
+
+        html[data-theme="dark"] .image-placeholder h4 {
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .image-placeholder p {
+            color: #d1d5db !important;
+        }
+
+        /* Generated Image Container */
+        html[data-theme="dark"] .generated-image-container {
+            background: rgba(42, 42, 42, 0.95) !important;
+        }
+
+        /* Generated Image Header */
+        html[data-theme="dark"] .generated-image-header h4 {
+            color: #f9fafb !important;
+        }
+
+        /* Image Metadata */
+        html[data-theme="dark"] .generated-image-details {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        html[data-theme="dark"] .metadata-item {
+            color: #d1d5db !important;
+        }
+
+        /* Image Generation Input Area */
+        html[data-theme="dark"] .image-generation-input {
+            background: rgba(42, 42, 42, 0.95) !important;
+            border-top: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        /* Sample Prompts Section */
+        html[data-theme="dark"] .sample-prompts h4 {
+            color: #f9fafb !important;
+        }
+
+        /* Generation Options */
+        html[data-theme="dark"] .generation-options {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        html[data-theme="dark"] .option-group label {
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .option-group select {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #f9fafb !important;
+        }
+
+        /* Image Prompt Input */
+        html[data-theme="dark"] #imagePrompt {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] #imagePrompt::placeholder {
+            color: rgba(156, 163, 175, 0.8) !important;
+        }
+
+        /* Generating State - Dark Mode */
+        html[data-theme="dark"] .generating-state {
+            color: #d1d5db !important;
+        }
+
+        html[data-theme="dark"] .generating-state h4 {
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .generating-state p {
+            color: #d1d5db !important;
+        }
+
+        /* Error State - Dark Mode */
+        html[data-theme="dark"] .error-state {
+            color: #fca5a5 !important;
+        }
+
+        html[data-theme="dark"] .error-icon {
+            color: #ef4444 !important;
+        }
+
+        /* Image Grid - Dark Mode */
+        html[data-theme="dark"] .image-grid {
+            background: rgba(42, 42, 42, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        /* Additional Image Generation Dark Mode Enhancements */
+        html[data-theme="dark"] .image-generation-container .demo-section {
+            background: rgba(42, 42, 42, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+        }
+
+        html[data-theme="dark"] .image-generation-container .demo-section__title {
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .image-generation-container .demo-section__description {
+            color: #d1d5db !important;
+        }
+
+        /* ===== COPY BUTTON FIXES - DARK MODE ===== */
+
+        /* Fix copy buttons in dark mode */
+        html[data-theme="dark"] .simple-copy-btn {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #d1d5db !important;
+            outline: none !important;
+        }
+
+        html[data-theme="dark"] .simple-copy-btn:hover {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            outline: none !important;
+        }
+
+        html[data-theme="dark"] .simple-copy-btn:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        html[data-theme="dark"] .simple-copy-btn.copied {
+            background: #10b981 !important;
+            border-color: #10b981 !important;
+            color: white !important;
+            outline: none !important;
+        }
+
+        /* Fix copy code buttons in dark mode */
+        html[data-theme="dark"] .copy-code-btn {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #d1d5db !important;
+            outline: none !important;
+        }
+
+        html[data-theme="dark"] .copy-code-btn:hover {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            outline: none !important;
+        }
+
+        html[data-theme="dark"] .copy-code-btn:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        html[data-theme="dark"] .copy-code-btn.copied {
+            background: #10b981 !important;
+            border-color: #10b981 !important;
+            color: white !important;
+            outline: none !important;
+        }
+
+        /* ===== CLEAR BUTTON CONSISTENCY FIXES - DARK MODE ===== */
+
+        /* Ensure all Clear buttons have consistent styling in dark mode */
+        html[data-theme="dark"] .chatgpt-actions .btn--ghost,
+        html[data-theme="dark"] .realtime-actions .btn--ghost,
+        html[data-theme="dark"] .btn--ghost {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #d1d5db !important;
+        }
+
+        html[data-theme="dark"] .chatgpt-actions .btn--ghost:hover,
+        html[data-theme="dark"] .realtime-actions .btn--ghost:hover,
+        html[data-theme="dark"] .btn--ghost:hover {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+        }
+
+        html[data-theme="dark"] .chatgpt-actions .btn--ghost:focus,
+        html[data-theme="dark"] .realtime-actions .btn--ghost:focus,
+        html[data-theme="dark"] .btn--ghost:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        /* Fix secondary buttons in dark mode */
+        html[data-theme="dark"] .btn--secondary {
+            background: rgba(75, 85, 99, 0.95) !important;
+            border: 1px solid rgba(156, 163, 175, 0.4) !important;
+            color: #d1d5db !important;
+        }
+
+        html[data-theme="dark"] .btn--secondary:hover {
+            background: rgba(55, 65, 81, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+        }
+
+        html[data-theme="dark"] .btn--secondary:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        /* ===== DOCUMENT INTELLIGENCE TOOL - LIGHT MODE ENHANCEMENTS ===== */
+
+        /* Document Intelligence Container */
+        html[data-theme="light"] .document-intelligence-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 12px !important;
+            padding: var(--spacing-lg) !important;
+        }
+
+        /* Sample Documents Section */
+        html[data-theme="light"] .sample-documents-section h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .sample-doc-btn {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        html[data-theme="light"] .sample-doc-btn:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(102, 126, 234, 0.15)) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        /* File Upload Area */
+        html[data-theme="light"] .file-upload-area {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 2px dashed #d0d0d0 !important;
+            border-radius: 12px !important;
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .file-upload-area:hover {
+            border-color: #667eea !important;
+            background: rgba(248, 250, 252, 0.98) !important;
+        }
+
+        html[data-theme="light"] .file-upload-area h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .file-upload-area p {
+            color: #666666 !important;
+        }
+
+        /* Upload Progress */
+        html[data-theme="light"] .upload-progress {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            padding: var(--spacing-md) !important;
+        }
+
+        html[data-theme="light"] .progress-filename {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .progress-percentage {
+            color: #667eea !important;
+        }
+
+        html[data-theme="light"] .progress-status {
+            color: #555555 !important;
+        }
+
+        /* Translation Configuration */
+        html[data-theme="light"] .translation-config {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            padding: var(--spacing-lg) !important;
+        }
+
+        html[data-theme="light"] .translation-config h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .translation-config label {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .form-select {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .form-select:focus {
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        /* Translation Progress */
+        html[data-theme="light"] .translation-progress {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] .translation-progress h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .translation-status-card {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .status-text {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .status-details {
+            color: #555555 !important;
+        }
+
+        /* Translation Results */
+        html[data-theme="light"] .translation-results {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] .translation-results h4 {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .results-card {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .result-filename {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .result-details {
+            color: #555555 !important;
+        }
+
+        /* Translation Error State */
+        html[data-theme="light"] .translation-error {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] .error-card {
+            background: rgba(239, 68, 68, 0.1) !important;
+            border: 1px solid rgba(239, 68, 68, 0.3) !important;
+        }
+
+        html[data-theme="light"] .error-header {
+            color: #dc3545 !important;
+        }
+
+        html[data-theme="light"] .error-message {
+            color: #721c24 !important;
+        }
+
+        /* Translation History */
+        html[data-theme="light"] .translation-history {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+        }
+
+        html[data-theme="light"] .history-empty {
+            color: #555555 !important;
+        }
+
+        /* Translation Interface Components */
+        html[data-theme="light"] .translation-interface {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .translation-controls {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-bottom: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .language-selector label {
+            color: #1a1a1a !important;
+        }
+
+        html[data-theme="light"] .translation-panels {
+            background: rgba(255, 255, 255, 0.98) !important;
+        }
+
+        html[data-theme="light"] .translation-panel {
+            border-right: 1px solid #e0e0e0 !important;
+        }
+
+        html[data-theme="light"] .translation-input {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .translation-input:focus {
+            border-color: #667eea !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        html[data-theme="light"] .translation-input::placeholder {
+            color: #888888 !important;
+        }
+
+        html[data-theme="light"] .translation-output {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        /* Document Intelligence Service Card Enhancement */
+        html[data-theme="light"] .service-card[data-service="document-intelligence"] .service-card__icon {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+        }
+
+        html[data-theme="light"] .service-card[data-service="document-intelligence"] .feature-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.25)) !important;
+            color: #059669 !important;
+            border: 1px solid rgba(16, 185, 129, 0.4) !important;
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2) !important;
+        }
+
+        html[data-theme="light"] .service-card[data-service="document-intelligence"] .explore-btn {
+            color: #059669 !important;
+        }
+
+        /* Speech Recognition Components (part of realtime tool) */
+        html[data-theme="light"] .speech-recognition-container {
+            background: rgba(255, 255, 255, 0.98) !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 12px !important;
+        }
+
+        html[data-theme="light"] .speech-recognition-output {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border: 1px solid #e0e0e0 !important;
+            color: #333333 !important;
+        }
+
+        html[data-theme="light"] .speech-recognition-message {
+            color: #555555 !important;
+        }
+
+        html[data-theme="light"] .speech-recognition-message strong {
+            color: #1a1a1a !important;
+        }
+
+        /* Progress Bars */
+        html[data-theme="light"] .progress-bar {
+            background: rgba(224, 224, 224, 0.5) !important;
+        }
+
+        html[data-theme="light"] .progress-fill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        }
+
+        /* Action Buttons in Document Intelligence */
+        html[data-theme="light"] .translation-actions .btn--primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border: none !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3) !important;
+        }
+
+        html[data-theme="light"] .translation-actions .btn--primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        /* ===== COPY BUTTON FIXES - LIGHT MODE ===== */
+
+        /* Fix red border/outline issue on copy buttons */
+        html[data-theme="light"] .simple-copy-btn {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #555555 !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        html[data-theme="light"] .simple-copy-btn:hover {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            outline: none !important;
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        html[data-theme="light"] .simple-copy-btn:focus {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        html[data-theme="light"] .simple-copy-btn:active {
+            background: rgba(240, 242, 247, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            outline: none !important;
+            transform: translateY(1px) !important;
+        }
+
+        html[data-theme="light"] .simple-copy-btn.copied {
+            background: #10b981 !important;
+            border-color: #10b981 !important;
+            color: white !important;
+            outline: none !important;
+            box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3) !important;
+        }
+
+        /* Fix copy code buttons */
+        html[data-theme="light"] .copy-code-btn {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #555555 !important;
+            outline: none !important;
+        }
+
+        html[data-theme="light"] .copy-code-btn:hover {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            outline: none !important;
+        }
+
+        html[data-theme="light"] .copy-code-btn:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        html[data-theme="light"] .copy-code-btn.copied {
+            background: #10b981 !important;
+            border-color: #10b981 !important;
+            color: white !important;
+            outline: none !important;
+        }
+
+        /* ===== CLEAR BUTTON CONSISTENCY FIXES - LIGHT MODE ===== */
+
+        /* Ensure all Clear buttons have consistent styling */
+        html[data-theme="light"] .chatgpt-actions .btn--ghost,
+        html[data-theme="light"] .realtime-actions .btn--ghost,
+        html[data-theme="light"] .btn--ghost {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #555555 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        html[data-theme="light"] .chatgpt-actions .btn--ghost:hover,
+        html[data-theme="light"] .realtime-actions .btn--ghost:hover,
+        html[data-theme="light"] .btn--ghost:hover {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        html[data-theme="light"] .chatgpt-actions .btn--ghost:focus,
+        html[data-theme="light"] .realtime-actions .btn--ghost:focus,
+        html[data-theme="light"] .btn--ghost:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        /* Fix secondary buttons (like Clear Text button) */
+        html[data-theme="light"] .btn--secondary {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid #d0d0d0 !important;
+            color: #555555 !important;
+            transition: all 0.3s ease !important;
+        }
+
+        html[data-theme="light"] .btn--secondary:hover {
+            background: rgba(248, 250, 252, 0.95) !important;
+            border-color: #667eea !important;
+            color: #667eea !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2) !important;
+        }
+
+        html[data-theme="light"] .btn--secondary:focus {
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+        }
+
+        html[data-theme="light"] .feature-badge {
+            background: rgba(99, 102, 241, 0.1) !important;
+            color: #4338ca !important;
+            border: 1px solid rgba(99, 102, 241, 0.2) !important;
+        }
+
+        html[data-theme="dark"] .stat-number {
+            color: #667eea !important;
+        }
+
+        html[data-theme="dark"] .demos {
+            background: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        html[data-theme="dark"] .footer {
+            background: rgba(26, 26, 26, 0.95) !important;
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        html[data-theme="dark"] .showcase--fullwidth {
+            background: #1a1a1a !important;
+        }
+
+        html[data-theme="dark"] .demo-section {
+            background: rgba(42, 42, 42, 0.5) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        html[data-theme="dark"] .generated-text-item,
+        html[data-theme="dark"] .realtime-message,
+        html[data-theme="dark"] .speech-recognition-message {
+            background: rgba(75, 85, 99, 0.8) !important;
+            border: 1px solid rgba(156, 163, 175, 0.3) !important;
+            color: #f3f4f6 !important;
+        }
+
+        html[data-theme="dark"] .generated-text-item strong,
+        html[data-theme="dark"] .realtime-message strong,
+        html[data-theme="dark"] .speech-recognition-message strong {
+            color: #e5e7eb !important;
+        }
+
+        /* Enhanced text formatting styles for AI responses */
+        .ai-response-content h1,
+        .ai-response-content h2,
+        .ai-response-content h3 {
+            margin: 16px 0 8px 0;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .ai-response-content p {
+            margin: 12px 0;
+            line-height: 1.6;
+        }
+
+        .ai-response-content ul,
+        .ai-response-content ol {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .ai-response-content li {
+            margin: 4px 0;
+        }
+
+        .ai-response-content code {
+            background: rgba(0, 0, 0, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .ai-response-content pre {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        /* Dark mode overrides for text formatting */
+        html[data-theme="dark"] .ai-response-content code {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: #f3f4f6 !important;
+        }
+
+        html[data-theme="dark"] .ai-response-content pre {
+            background: rgba(255, 255, 255, 0.08) !important;
+            color: #f3f4f6 !important;
+        }
+
+        html[data-theme="dark"] .ai-response-content h1,
+        html[data-theme="dark"] .ai-response-content h2,
+        html[data-theme="dark"] .ai-response-content h3 {
+            color: #f9fafb !important;
+        }
+
+        html[data-theme="dark"] .ai-response-content p {
+            color: #f3f4f6 !important;
+        }
+
+        /* Mobile dark mode adjustments */
+        @media (max-width: 767px) {
+            html[data-theme="dark"] .nav__menu {
+                background: #1a1a1a !important;
+                border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+            }
+
+            html[data-theme="dark"] .demo-section,
+            html[data-theme="dark"] .demo-card {
+                background: transparent !important;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- Noise Overlay for Texture -->
+    <div class="noise-overlay" style="position: fixed; inset: 0; z-index: -1; opacity: 0.02;"></div>
+    
+    <!-- Modern Navigation Header -->
+    <header class="header glass-card" style="position: fixed; top: 20px; left: 0; right: 0; z-index: 1000; margin: 0; border-radius: 0 !important;">
+        <div class="container" style="max-width: none; padding: 0;">
+            <nav class="nav" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 20px;">
+                <!-- Logo -->
+                <div class="nav__brand" style="display: flex; align-items: center; gap: 12px;">
+                    <div class="logo-container floating" style="width: 40px; height: 40px;">
+                        <img src="assets/microsoft-logo.svg" alt="Microsoft" style="width: 100%; height: 100%;">
+                    </div>
+                    <span style="font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                        Chris Brown | Microsoft Fellow
+                    </span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <ul class="nav__menu" style="display: flex; gap: 40px; list-style: none; margin: 0; padding: 0;">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#demos" class="nav-link">Live Demos</a></li>
+                </ul>
+                
+                <!-- Actions -->
+                <div class="nav__actions" style="display: flex; gap: 20px; align-items: center;">
+                  
+                    <!-- Dark Mode Toggle -->
+                    <button id="themeToggle" class="theme-toggle" style="width: 60px; height: 30px; border-radius: 15px; background: #e0e0e0; border: 2px solid #ccc; position: relative; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; padding: 2px;">
+                        <!-- Background icons -->
+                        <div style="position: absolute; width: 100%; height: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 8px; pointer-events: none;">
+                            <!-- Sun icon (left side) -->
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FDB813" stroke-width="2" opacity="0.7">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                            <!-- Moon icon (right side) -->
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4A5568" stroke-width="2" opacity="0.7">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        </div>
+                        <!-- Toggle slider -->
+                        <span id="themeToggleSlider" style="position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white; border-radius: 50%; transition: all 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 1;"></span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" style="display: none;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero parallax-container" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 20px 60px; position: relative; overflow: hidden;">
+
+        <div class="container" style="width: 100%; max-width: 1600px; padding: 0 20px; margin: 0 auto;">
+            <div class="hero__content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 1;">
+                <!-- Title and Subtitle Container -->
+                <div class="hero__title-container" style="display: flex; align-items: center; justify-content: center; gap: 80px; margin-bottom: 60px; max-width: 1200px; flex-wrap: wrap;">
+                    <!-- Main Title -->
+                    <div class="hero__title-wrapper" style="margin-top: 40px;">
+                        <h1 class="hero__title reveal" style="font-family: 'Space Grotesk', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin: 0; text-align: left;">
+                            <span class="heading-gradient">AI Engineering</span><br>
+                            <span style="color: var(--color-text);">with Azure AI<br>Services</span>
+                        </h1>
+                    </div>
+
+                    <!-- Subtitle -->
+                    <div class="hero__subtitle-wrapper" style="max-width: 400px;">
+                        <p class="hero__subtitle reveal" style="font-size: 1.2rem; margin: 0; line-height: 1.6; font-weight: 300; text-align: left;">
+                            Explore interactive demonstrations and real-world implementations of Microsoft Azure AI services
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Portfolio Attribution -->
+                <div class="hero__attribution reveal" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                    <p style="font-size: 1rem; color: var(--color-text); margin: 0 0 8px 0; font-weight: 500;">
+                        Portfolio by Chris Brown
+                    </p>
+                    <p style="font-size: 0.9rem; margin: 0 0 12px 0;">
+                        AI Engineering & Azure Integration Specialist
+                    </p>
+                    <p style="font-size: 0.8rem; margin: 0; line-height: 1.4;">
+                        Independent portfolio project • Not affiliated with Microsoft Corporation
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services" style="padding: 100px 20px; position: relative;">
+        <div class="container" style="width: 100%; max-width: none; padding: 0 20px; margin: 0;">
+            <!-- Section Header -->
+            <div class="section-header reveal" style="text-align: center; margin-bottom: 80px;">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; margin-bottom: 20px;">
+                    <span class="heading-gradient">Azure AI Services Integration</span>
+                </h2>
+            </div>
+            
+            <!-- Services Grid -->
+            <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; width: 100%; margin: 0;">
+                
+                <!-- Service Card 1: Azure OpenAI -->
+                <div class="service-card glass-card card-3d reveal" data-service="openai" 
+                     style="padding: 40px; border-radius: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            <path d="M8 9h8"/>
+                            <path d="M8 13h6"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Azure OpenAI Service</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Advanced language models for text generation, intelligent chat interface, and content summarization.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Text Generation (Chat Completion)</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">AI Chat</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Summarization</span>
+                    </div>
+                    <!-- Hover Glow Effect -->
+                    <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s;"></div>
+                </div>
+
+                <!-- Service Card 2: Speech & Audio (Realtime API) -->
+                <div class="service-card glass-card card-3d reveal" data-service="openai-realtime"
+                     style="padding: 40px; border-radius: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <path d="M12 19v4"/>
+                            <path d="M8 23h8"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Speech & Audio Generation</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Text-to-speech and speech-to-text audio generation with Azure OpenAI's API.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Text to Speech</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Audio Generation</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Real-time Response</span>
+                    </div>
+                    <!-- Hover Glow Effect -->
+                    <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s;"></div>
+                </div>
+
+                <!-- Service Card 3: Image Generation (DALL-E 3) -->
+                <div class="service-card glass-card card-3d reveal" data-service="image-generation"
+                     style="padding: 40px; border-radius: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M21 12c0 1.66-1.34 3-3 3H6c-1.66 0-3-1.34-3-3s1.34-3 3-3h12c1.66 0 3 1.34 3 3z"/>
+                            <path d="M12 3v6"/>
+                            <path d="M12 15v6"/>
+                            <path d="M3 12h6"/>
+                            <path d="M15 12h6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Image Generation</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Create stunning images from text descriptions using Azure OpenAI's DALL-E 3 model.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(139, 92, 246, 0.1); border-radius: 20px; font-size: 0.875rem;">Text to Image</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(139, 92, 246, 0.1); border-radius: 20px; font-size: 0.875rem;">DALL-E 3</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(139, 92, 246, 0.1); border-radius: 20px; font-size: 0.875rem;">High Quality</span>
+                    </div>
+                    <!-- Hover Glow Effect -->
+                    <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s;"></div>
+                </div>
+
+                <!-- Service Card 4: Speech Services (Coming Soon) -->
+                <div class="service-card glass-card card-3d reveal" data-service="speech-services"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <path d="M12 19v4"/>
+                            <path d="M8 23h8"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Speech Services</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Enable applications to incorporate speech features like speech recognition, synthesis, and translation.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(0, 210, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Speech Recognition</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(0, 210, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Speech Synthesis</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(0, 210, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Translation</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 5: Vision Services (Coming Soon) -->
+                <div class="service-card glass-card card-3d reveal" data-service="vision-services"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #43E97B 0%, #38F9D7 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Vision Services</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Allow for image analysis and understanding through various APIs to process and analyze visual content.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(67, 233, 123, 0.1); border-radius: 20px; font-size: 0.875rem;">Image Analysis</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(67, 233, 123, 0.1); border-radius: 20px; font-size: 0.875rem;">Object Detection</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(67, 233, 123, 0.1); border-radius: 20px; font-size: 0.875rem;">OCR</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 6: Language Services (Coming Soon) -->
+                <div class="service-card glass-card card-3d reveal" data-service="language-services"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #FA709A 0%, #FEE140 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 1.5 17A2.5 2.5 0 0 1 4 14.5a2.5 2.5 0 0 1 2.5 2.5A2.5 2.5 0 0 1 4 19.5zM20 19.5a2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 20 14.5a2.5 2.5 0 0 1 2.5 2.5A2.5 2.5 0 0 1 20 19.5zM12 12A6 6 0 0 1 6 6a6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6z"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Language Services</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Include natural language processing capabilities, such as text analysis and question answering, which facilitate understanding and generating human language.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(250, 112, 154, 0.1); border-radius: 20px; font-size: 0.875rem;">Text Analysis</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(250, 112, 154, 0.1); border-radius: 20px; font-size: 0.875rem;">Q&A</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(250, 112, 154, 0.1); border-radius: 20px; font-size: 0.875rem;">NLP</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 7: Translator Service (Coming Soon) -->
+                <div class="service-card glass-card card-3d reveal" data-service="translator-service"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M5 8l6 6M4 14l6-6-2-3M2 5h12M7 2h5l4 14-4 3-1-6"/>
+                            <path d="M10 16v4l2-1 2 1v-4"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Translator Service</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Provides capabilities for translating text in multiple languages.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Multi-language</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Real-time</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Text Translation</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 8: Document Intelligence -->
+                <div class="service-card glass-card card-3d reveal" data-service="document-intelligence"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden;">
+                    <div class="status-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #00D084 0%, #00A86B 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Active</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #FD79A8 0%, #FDCB6E 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Document Intelligence</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Converts documents into actionable insights by extracting information and processing this data into a usable format.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(253, 121, 168, 0.1); border-radius: 20px; font-size: 0.875rem;">Data Extraction</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(253, 121, 168, 0.1); border-radius: 20px; font-size: 0.875rem;">Form Processing</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(253, 121, 168, 0.1); border-radius: 20px; font-size: 0.875rem;">OCR</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 9: Content Safety (Coming Soon) -->
+                <div class="service-card glass-card card-3d reveal" data-service="content-safety"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #E17055 0%, #FDCB6E 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Content Safety</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Monitors and moderates content generated by users or AI to prevent harmful or inappropriate outputs.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(225, 112, 85, 0.1); border-radius: 20px; font-size: 0.875rem;">Content Moderation</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(225, 112, 85, 0.1); border-radius: 20px; font-size: 0.875rem;">Safety Filters</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(225, 112, 85, 0.1); border-radius: 20px; font-size: 0.875rem;">AI Monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Service Card 10: Azure AI Search (Coming Soon) -->
+                <div class="service-card glass-card card-3d reveal" data-service="ai-search"
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
+                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #74B9FF 0%, #0984E3 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Azure AI Search</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Integrates AI to enhance search capabilities in applications, improving user experience and content discoverability.</p>
+                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(116, 185, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Smart Search</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(116, 185, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Content Discovery</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(116, 185, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">AI-Enhanced</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Demo Section -->
+    <section id="demos" class="demos" style="padding: 100px 20px; background: rgba(0, 0, 0, 0.02);">
+        <div class="container" style="width: 100%; max-width: none; padding: 0 20px; margin: 0;">
+            <div class="section-header reveal" style="text-align: center; margin-bottom: 80px;">
+                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; margin-bottom: 20px;">
+                    <span class="heading-gradient">Interactive Portfolio Demos</span>
+                </h2>
+                <p style="font-size: 1.125rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto;">
+                    Experience AI integration capabilities through hands-on demonstrations.
+                </p>
+            </div>
+            
+            <!-- Demo Container -->
+            <div id="demoContainer" class="demo-container glass-card" style="padding: 40px 30px; border-radius: 30px; min-height: 500px; width: 100%; max-width: none;">
+                <div class="demo-placeholder" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px;">
+                    <div class="icon-container pulse" style="width: 120px; height: 120px; margin: 0 auto 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 30px; display: flex; align-items: center; justify-content: center;">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="white">
+                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 20px;">Select a Service to Begin</h3>
+                    <p style="color: var(--color-text-secondary); max-width: 500px; margin: 0 auto;">
+                        Click on any service card above to launch an interactive demonstration and explore AI capabilities in real-time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer" style="padding: 40px 20px; background: rgba(0, 0, 0, 0.03); margin-top: 100px;">
+        <div class="container" style="max-width: 1400px; margin: 0 auto; text-align: center;">
+            <p style="color: var(--color-text-secondary); line-height: 1.6;">
+                <small style="opacity: 0.8;">Portfolio Demo Project | Independent showcase of Azure AI integration capabilities</small>
+            </p>
+            <!-- Visitor Counter - Subtle and unobtrusive -->
+            <div id="visitor-counter" style="margin-top: 20px; opacity: 0.5; font-size: 0.75rem; color: var(--color-text-secondary);">
+                <span>Total Visitors: </span><span id="visitor-count">-</span>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Business Value Modal -->
+    <div id="businessValueModal" class="business-modal" style="display: none;">
+        <div class="business-modal__backdrop"></div>
+        <div class="business-modal__container">
+            <div class="business-modal__header">
+                <h2 class="business-modal__title" id="businessModalTitle"></h2>
+                <button class="business-modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="business-modal__content" id="businessModalContent">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Showcase Modal -->
+    <div id="serviceShowcase" class="showcase-modal" style="display: none;"></div>
+    
+    <!-- Scripts -->
+    <script src="js/showcase.js"></script>
+    <script src="js/modern-app.js"></script>
+    <script src="services/image_generation/ui.js"></script>
+
+    <!-- Visitor Counter Script -->
+    <script>
+        // Fetch and display visitor count
+        async function updateVisitorCount() {
+            try {
+                const response = await fetch('/api/visitor-stats');
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success) {
+                        const countElement = document.getElementById('visitor-count');
+                        if (countElement) {
+                            // Format the number with commas for readability
+                            const formattedCount = data.totalVisitors.toLocaleString();
+                            countElement.textContent = formattedCount;
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching visitor stats:', error);
+                // Fail silently - don't show errors to users
+            }
+        }
+
+        // Update visitor count when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            updateVisitorCount();
+        });
+    </script>
+</body>
+</html>

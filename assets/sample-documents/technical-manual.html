@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Infrastructure Management Platform - Technical Documentation</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; line-height: 1.6; }
+        .header { text-align: center; background: #f8f9fa; padding: 30px; border-radius: 8px; margin-bottom: 30px; }
+        .section { margin: 30px 0; }
+        .code-block { background: #f8f9fa; border: 1px solid #e9ecef; padding: 15px; border-radius: 4px; font-family: 'Courier New', monospace; margin: 15px 0; overflow-x: auto; }
+        .api-endpoint { background: #e7f3ff; border-left: 4px solid #0078d4; padding: 15px; margin: 15px 0; }
+        .warning { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; }
+        .note { background: #d1ecf1; border-left: 4px solid #17a2b8; padding: 15px; margin: 15px 0; }
+        .success { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #dee2e6; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; font-weight: 600; }
+        .parameter { font-family: 'Courier New', monospace; background: #f8f9fa; padding: 2px 6px; border-radius: 3px; }
+        .toc { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .toc ul { list-style-type: none; padding-left: 20px; }
+        .toc a { text-decoration: none; color: #0078d4; }
+        .toc a:hover { text-decoration: underline; }
+        .image-placeholder { background: #f8f9fa; border: 2px dashed #dee2e6; padding: 40px; text-align: center; margin: 20px 0; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Cloud Infrastructure Management Platform</h1>
+        <h2>Developer Guide & API Documentation</h2>
+        <p><strong>Version:</strong> 3.2.1 | <strong>Release Date:</strong> October 2024<br>
+        <strong>Target Audience:</strong> System Administrators, DevOps Engineers, Software Developers</p>
+    </div>
+
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#overview">1. Platform Overview</a></li>
+            <li><a href="#architecture">2. System Architecture</a></li>
+            <li><a href="#installation">3. Installation & Configuration</a></li>
+            <li><a href="#api-reference">4. API Reference</a></li>
+            <li><a href="#monitoring">5. Monitoring & Troubleshooting</a></li>
+            <li><a href="#security">6. Security Configuration</a></li>
+            <li><a href="#examples">7. Code Examples</a></li>
+            <li><a href="#appendix">8. Appendix</a></li>
+        </ul>
+    </div>
+
+    <div class="section" id="overview">
+        <h2>1. Platform Overview</h2>
+        <p>The Cloud Infrastructure Management Platform (CIMP) is an enterprise-grade solution designed to orchestrate, monitor, and manage multi-cloud infrastructure deployments. The platform provides automated provisioning, real-time monitoring, cost optimization, and security compliance across Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).</p>
+
+        <h3>1.1 Key Features</h3>
+        <ul>
+            <li><strong>Multi-Cloud Orchestration:</strong> Unified interface for managing resources across multiple cloud providers</li>
+            <li><strong>Infrastructure as Code (IaC):</strong> Terraform and ARM template integration with version control</li>
+            <li><strong>Real-Time Monitoring:</strong> Comprehensive metrics collection and alerting system</li>
+            <li><strong>Cost Optimization:</strong> Automated resource scaling and cost analysis with recommendations</li>
+            <li><strong>Security Compliance:</strong> Built-in security scanning and compliance reporting (SOC 2, GDPR, HIPAA)</li>
+            <li><strong>API-First Architecture:</strong> RESTful APIs with comprehensive SDK support</li>
+        </ul>
+
+        <div class="note">
+            <p><strong>Note:</strong> This documentation covers CIMP version 3.2.1. For migration guides from previous versions, refer to the Migration Guide section in the Appendix.</p>
+        </div>
+    </div>
+
+    <div class="section" id="architecture">
+        <h2>2. System Architecture</h2>
+
+        <div class="image-placeholder">
+            <h4>CIMP System Architecture Diagram</h4>
+            <p>[High-level architecture diagram showing microservices deployment, data flow, and integration points with cloud providers]</p>
+        </div>
+
+        <h3>2.1 Core Components</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Description</th>
+                    <th>Technology Stack</th>
+                    <th>Dependencies</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>API Gateway</td>
+                    <td>Central entry point for all API requests with authentication and rate limiting</td>
+                    <td>Kong, Redis, PostgreSQL</td>
+                    <td>Auth Service, Monitoring</td>
+                </tr>
+                <tr>
+                    <td>Orchestration Engine</td>
+                    <td>Core service for infrastructure provisioning and lifecycle management</td>
+                    <td>Go, Kubernetes, Helm</td>
+                    <td>Cloud Provider APIs</td>
+                </tr>
+                <tr>
+                    <td>Monitoring Service</td>
+                    <td>Metrics collection, alerting, and performance analysis</td>
+                    <td>Prometheus, Grafana, InfluxDB</td>
+                    <td>Time-series Database</td>
+                </tr>
+                <tr>
+                    <td>Cost Analytics</td>
+                    <td>Resource cost tracking and optimization recommendations</td>
+                    <td>Python, Apache Spark, Kafka</td>
+                    <td>Billing APIs, ML Pipeline</td>
+                </tr>
+                <tr>
+                    <td>Security Scanner</td>
+                    <td>Continuous security assessment and compliance validation</td>
+                    <td>Java, Spring Boot, Docker</td>
+                    <td>Vulnerability Database</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2 Data Flow Architecture</h3>
+        <p>The platform follows an event-driven architecture pattern with the following data flow:</p>
+
+        <ol>
+            <li><strong>Request Processing:</strong> API Gateway validates and routes incoming requests</li>
+            <li><strong>Event Publishing:</strong> Core services publish events to message queues for asynchronous processing</li>
+            <li><strong>Data Aggregation:</strong> Monitoring services collect metrics and logs from all components</li>
+            <li><strong>Analytics Processing:</strong> Cost and performance analytics run on scheduled intervals</li>
+            <li><strong>Notification Delivery:</strong> Alert system processes events and delivers notifications via configured channels</li>
+        </ol>
+    </div>
+
+    <div class="section" id="installation">
+        <h2>3. Installation & Configuration</h2>
+
+        <h3>3.1 System Requirements</h3>
+
+        <div class="warning">
+            <p><strong>Prerequisites:</strong> Ensure your environment meets the minimum requirements before proceeding with installation.</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Minimum</th>
+                    <th>Recommended</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kubernetes Cluster</td>
+                    <td>v1.24+</td>
+                    <td>v1.28+</td>
+                    <td>3 nodes minimum</td>
+                </tr>
+                <tr>
+                    <td>Memory per Node</td>
+                    <td>16 GB</td>
+                    <td>32 GB</td>
+                    <td>Varies by workload</td>
+                </tr>
+                <tr>
+                    <td>CPU per Node</td>
+                    <td>4 cores</td>
+                    <td>8 cores</td>
+                    <td>x86_64 architecture</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>100 GB SSD</td>
+                    <td>500 GB NVMe</td>
+                    <td>Persistent volumes required</td>
+                </tr>
+                <tr>
+                    <td>Network Bandwidth</td>
+                    <td>1 Gbps</td>
+                    <td>10 Gbps</td>
+                    <td>Low latency preferred</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3.2 Installation Process</h3>
+
+        <h4>Step 1: Download and Prepare Installation Package</h4>
+        <div class="code-block">
+# Download the latest CIMP release
+curl -L https://releases.cimp.io/v3.2.1/cimp-installer.tar.gz -o cimp-installer.tar.gz
+
+# Extract the installation package
+tar -xzf cimp-installer.tar.gz
+cd cimp-installer
+
+# Verify package integrity
+sha256sum -c checksums.txt
+        </div>
+
+        <h4>Step 2: Configure Environment Variables</h4>
+        <div class="code-block">
+# Copy the sample configuration file
+cp config/cimp.env.sample config/cimp.env
+
+# Edit configuration file with your specific settings
+nano config/cimp.env
+
+# Required environment variables:
+export CIMP_DOMAIN="cimp.yourdomain.com"
+export CIMP_DATABASE_URL="postgresql://user:password@postgres:5432/cimp"
+export CIMP_REDIS_URL="redis://redis:6379/0"
+export CIMP_LICENSE_KEY="your-enterprise-license-key"
+
+# Cloud provider credentials
+export AWS_ACCESS_KEY_ID="your-aws-access-key"
+export AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
+export AZURE_CLIENT_ID="your-azure-client-id"
+export AZURE_CLIENT_SECRET="your-azure-client-secret"
+export GOOGLE_APPLICATION_CREDENTIALS="/path/to/gcp-service-account.json"
+        </div>
+
+        <h4>Step 3: Deploy Core Infrastructure</h4>
+        <div class="code-block">
+# Apply Kubernetes manifests for core services
+kubectl apply -f manifests/namespace.yaml
+kubectl apply -f manifests/secrets.yaml
+kubectl apply -f manifests/configmaps.yaml
+
+# Deploy PostgreSQL and Redis (if not using external services)
+helm install cimp-database charts/postgresql --namespace cimp-system
+helm install cimp-cache charts/redis --namespace cimp-system
+
+# Wait for database to be ready
+kubectl wait --for=condition=ready pod -l app=postgresql --timeout=300s
+
+# Initialize database schema
+kubectl exec -it deployment/cimp-database -- psql -U cimp -d cimp -f /docker-entrypoint-initdb.d/init.sql
+        </div>
+
+        <h4>Step 4: Deploy CIMP Components</h4>
+        <div class="code-block">
+# Deploy API Gateway
+helm install cimp-gateway charts/api-gateway --namespace cimp-system
+
+# Deploy core microservices
+helm install cimp-orchestrator charts/orchestrator --namespace cimp-system
+helm install cimp-monitoring charts/monitoring --namespace cimp-system
+helm install cimp-analytics charts/analytics --namespace cimp-system
+
+# Verify all pods are running
+kubectl get pods -n cimp-system
+
+# Check service endpoints
+kubectl get services -n cimp-system
+        </div>
+
+        <div class="success">
+            <p><strong>Installation Complete:</strong> CIMP should now be accessible at https://cimp.yourdomain.com. Default login credentials are admin/cimp-admin (change immediately after first login).</p>
+        </div>
+    </div>
+
+    <div class="section" id="api-reference">
+        <h2>4. API Reference</h2>
+
+        <h3>4.1 Authentication</h3>
+        <p>CIMP uses JWT (JSON Web Tokens) for API authentication. All API requests must include a valid JWT token in the Authorization header.</p>
+
+        <div class="api-endpoint">
+            <p><strong>POST</strong> <span class="parameter">/api/v1/auth/login</span></p>
+            <p>Authenticate user and retrieve JWT token</p>
+        </div>
+
+        <div class="code-block">
+# Request example
+curl -X POST https://cimp.yourdomain.com/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "admin",
+    "password": "your-password",
+    "mfa_token": "123456"
+  }'
+
+# Response example
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "expires_in": 3600,
+  "token_type": "Bearer"
+}
+        </div>
+
+        <h3>4.2 Infrastructure Management</h3>
+
+        <div class="api-endpoint">
+            <p><strong>GET</strong> <span class="parameter">/api/v1/infrastructure/deployments</span></p>
+            <p>Retrieve list of infrastructure deployments with filtering and pagination</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Required</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="parameter">page</td>
+                    <td>integer</td>
+                    <td>No</td>
+                    <td>Page number for pagination (default: 1)</td>
+                </tr>
+                <tr>
+                    <td class="parameter">limit</td>
+                    <td>integer</td>
+                    <td>No</td>
+                    <td>Number of items per page (default: 20, max: 100)</td>
+                </tr>
+                <tr>
+                    <td class="parameter">provider</td>
+                    <td>string</td>
+                    <td>No</td>
+                    <td>Filter by cloud provider (aws, azure, gcp)</td>
+                </tr>
+                <tr>
+                    <td class="parameter">status</td>
+                    <td>string</td>
+                    <td>No</td>
+                    <td>Filter by deployment status (active, failed, pending)</td>
+                </tr>
+                <tr>
+                    <td class="parameter">environment</td>
+                    <td>string</td>
+                    <td>No</td>
+                    <td>Filter by environment (production, staging, development)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="code-block">
+# Request example with authentication
+curl -X GET "https://cimp.yourdomain.com/api/v1/infrastructure/deployments?provider=aws&status=active&limit=50" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
+  -H "Content-Type: application/json"
+
+# Response example
+{
+  "data": [
+    {
+      "id": "deploy-abc123",
+      "name": "production-web-cluster",
+      "provider": "aws",
+      "region": "us-east-1",
+      "status": "active",
+      "environment": "production",
+      "created_at": "2024-10-01T12:00:00Z",
+      "updated_at": "2024-10-15T14:30:00Z",
+      "resources": {
+        "instances": 12,
+        "load_balancers": 2,
+        "databases": 3,
+        "storage_gb": 2048
+      },
+      "cost": {
+        "daily": 156.78,
+        "monthly_projected": 4703.40,
+        "currency": "USD"
+      },
+      "tags": {
+        "team": "platform",
+        "project": "ecommerce",
+        "environment": "production"
+      }
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 50,
+    "total": 127,
+    "total_pages": 3
+  }
+}
+        </div>
+
+        <div class="api-endpoint">
+            <p><strong>POST</strong> <span class="parameter">/api/v1/infrastructure/deployments</span></p>
+            <p>Create new infrastructure deployment from Terraform template</p>
+        </div>
+
+        <div class="code-block">
+# Request example for new deployment
+curl -X POST https://cimp.yourdomain.com/api/v1/infrastructure/deployments \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "staging-api-cluster",
+    "provider": "azure",
+    "region": "eastus2",
+    "environment": "staging",
+    "template": {
+      "source": "git",
+      "repository": "https://github.com/company/infrastructure-templates",
+      "path": "azure/api-cluster",
+      "branch": "main"
+    },
+    "variables": {
+      "instance_count": 3,
+      "instance_size": "Standard_D4s_v3",
+      "enable_autoscaling": true,
+      "min_instances": 2,
+      "max_instances": 10
+    },
+    "tags": {
+      "team": "backend",
+      "project": "api-platform",
+      "cost_center": "engineering"
+    }
+  }'
+
+# Response example
+{
+  "id": "deploy-xyz789",
+  "status": "pending",
+  "message": "Deployment initiated successfully",
+  "estimated_completion": "2024-10-20T15:45:00Z",
+  "progress_url": "/api/v1/infrastructure/deployments/deploy-xyz789/progress"
+}
+        </div>
+
+        <h3>4.3 Monitoring and Metrics</h3>
+
+        <div class="api-endpoint">
+            <p><strong>GET</strong> <span class="parameter">/api/v1/monitoring/metrics</span></p>
+            <p>Retrieve time-series metrics for infrastructure components</p>
+        </div>
+
+        <div class="code-block">
+# Request example for CPU utilization metrics
+curl -X GET "https://cimp.yourdomain.com/api/v1/monitoring/metrics?deployment_id=deploy-abc123&metric=cpu_utilization&start_time=2024-10-15T00:00:00Z&end_time=2024-10-15T23:59:59Z&interval=1h" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+# Response with time-series data
+{
+  "metric": "cpu_utilization",
+  "unit": "percent",
+  "interval": "1h",
+  "data_points": [
+    {
+      "timestamp": "2024-10-15T00:00:00Z",
+      "value": 23.5,
+      "instance_id": "i-0123456789abcdef0"
+    },
+    {
+      "timestamp": "2024-10-15T01:00:00Z",
+      "value": 28.2,
+      "instance_id": "i-0123456789abcdef0"
+    }
+  ],
+  "aggregation": {
+    "min": 18.7,
+    "max": 67.3,
+    "avg": 34.8,
+    "p95": 58.2
+  }
+}
+        </div>
+    </div>
+
+    <div class="section" id="monitoring">
+        <h2>5. Monitoring & Troubleshooting</h2>
+
+        <h3>5.1 Health Check Endpoints</h3>
+        <p>CIMP provides comprehensive health check endpoints for monitoring system status and debugging issues.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Endpoint</th>
+                    <th>Purpose</th>
+                    <th>Expected Response</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="parameter">/health</td>
+                    <td>Overall system health</td>
+                    <td>HTTP 200 with status summary</td>
+                </tr>
+                <tr>
+                    <td class="parameter">/health/database</td>
+                    <td>Database connectivity</td>
+                    <td>HTTP 200 if database accessible</td>
+                </tr>
+                <tr>
+                    <td class="parameter">/health/cache</td>
+                    <td>Redis cache status</td>
+                    <td>HTTP 200 if cache responsive</td>
+                </tr>
+                <tr>
+                    <td class="parameter">/health/providers</td>
+                    <td>Cloud provider API status</td>
+                    <td>HTTP 200 with provider connectivity details</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>5.2 Common Issues and Solutions</h3>
+
+        <div class="warning">
+            <p><strong>Issue:</strong> Deployment fails with "Insufficient IAM permissions" error</p>
+            <p><strong>Solution:</strong> Verify that the configured cloud provider credentials have the required permissions for resource creation. Refer to the IAM Requirements section in the appendix.</p>
+        </div>
+
+        <div class="note">
+            <p><strong>Issue:</strong> High memory usage in monitoring service</p>
+            <p><strong>Solution:</strong> Adjust the metrics retention period or increase the allocated memory for the monitoring pods. Default retention is 30 days; consider reducing to 14 days for smaller environments.</p>
+        </div>
+
+        <h3>5.3 Log Analysis</h3>
+        <div class="code-block">
+# View orchestrator service logs
+kubectl logs -f deployment/cimp-orchestrator -n cimp-system
+
+# Search for specific error patterns
+kubectl logs deployment/cimp-orchestrator -n cimp-system | grep -E "(ERROR|FATAL)"
+
+# Export logs for analysis
+kubectl logs deployment/cimp-orchestrator -n cimp-system --since=24h > orchestrator-logs.txt
+        </div>
+    </div>
+
+    <div class="section" id="security">
+        <h2>6. Security Configuration</h2>
+
+        <h3>6.1 Authentication and Authorization</h3>
+        <p>CIMP implements role-based access control (RBAC) with the following built-in roles:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Permissions</th>
+                    <th>Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Administrator</strong></td>
+                    <td>Full system access, user management, configuration</td>
+                    <td>System administrators</td>
+                </tr>
+                <tr>
+                    <td><strong>DevOps Engineer</strong></td>
+                    <td>Infrastructure management, monitoring, cost analysis</td>
+                    <td>Operations teams</td>
+                </tr>
+                <tr>
+                    <td><strong>Developer</strong></td>
+                    <td>Read-only access, deployment triggers</td>
+                    <td>Development teams</td>
+                </tr>
+                <tr>
+                    <td><strong>Auditor</strong></td>
+                    <td>Read-only access to logs and compliance reports</td>
+                    <td>Compliance teams</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.2 Network Security</h3>
+        <div class="code-block">
+# Configure network policies for pod-to-pod communication
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cimp-network-policy
+  namespace: cimp-system
+spec:
+  podSelector:
+    matchLabels:
+      app: cimp
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: cimp
+    ports:
+    - protocol: TCP
+      port: 8080
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: database
+    ports:
+    - protocol: TCP
+      port: 5432
+        </div>
+
+        <div class="warning">
+            <p><strong>Security Notice:</strong> Always enable TLS encryption for all external communications and use strong, unique passwords for all service accounts. Regularly rotate API keys and certificates.</p>
+        </div>
+    </div>
+
+    <div class="section" id="examples">
+        <h2>7. Code Examples</h2>
+
+        <h3>7.1 Python SDK Usage</h3>
+        <div class="code-block">
+#!/usr/bin/env python3
+import os
+from cimp_sdk import CIMPClient, DeploymentConfig
+
+# Initialize CIMP client
+client = CIMPClient(
+    base_url=os.getenv('CIMP_URL', 'https://cimp.yourdomain.com'),
+    api_token=os.getenv('CIMP_API_TOKEN')
+)
+
+# Create a new deployment
+deployment_config = DeploymentConfig(
+    name='api-production-cluster',
+    provider='aws',
+    region='us-west-2',
+    environment='production',
+    template_source='github://company/infra-templates/aws/api-cluster',
+    variables={
+        'instance_count': 5,
+        'instance_type': 'm5.xlarge',
+        'enable_monitoring': True,
+        'backup_retention_days': 30
+    },
+    tags={
+        'team': 'platform',
+        'project': 'api-service',
+        'cost_center': 'engineering'
+    }
+)
+
+# Submit deployment
+try:
+    deployment = client.deployments.create(deployment_config)
+    print(f"Deployment created: {deployment.id}")
+
+    # Monitor deployment progress
+    while deployment.status == 'pending':
+        deployment.refresh()
+        print(f"Progress: {deployment.progress}%")
+        time.sleep(30)
+
+    if deployment.status == 'active':
+        print("Deployment completed successfully!")
+
+        # Retrieve deployment metrics
+        metrics = client.monitoring.get_metrics(
+            deployment_id=deployment.id,
+            metric='cpu_utilization',
+            start_time=datetime.now() - timedelta(hours=1)
+        )
+
+        avg_cpu = sum(point.value for point in metrics.data_points) / len(metrics.data_points)
+        print(f"Average CPU utilization: {avg_cpu:.2f}%")
+
+    else:
+        print(f"Deployment failed: {deployment.error_message}")
+
+except Exception as e:
+    print(f"Error: {e}")
+        </div>
+
+        <h3>7.2 Terraform Integration</h3>
+        <div class="code-block">
+# Configure CIMP provider
+terraform {
+  required_providers {
+    cimp = {
+      source  = "company/cimp"
+      version = "~> 1.0"
+    }
+  }
+}
+
+provider "cimp" {
+  api_url   = var.cimp_api_url
+  api_token = var.cimp_api_token
+}
+
+# Define infrastructure deployment
+resource "cimp_deployment" "web_cluster" {
+  name        = "web-production-cluster"
+  provider    = "azure"
+  region      = "eastus2"
+  environment = "production"
+
+  template {
+    source     = "git"
+    repository = "https://github.com/company/terraform-modules"
+    path       = "azure/web-cluster"
+    ref        = "v2.1.0"
+  }
+
+  variables = {
+    vm_count           = 6
+    vm_size           = "Standard_D4s_v3"
+    enable_autoscaling = true
+    min_instances     = 3
+    max_instances     = 12
+    ssl_certificate   = var.ssl_certificate_arn
+  }
+
+  tags = {
+    team        = "frontend"
+    project     = "web-application"
+    environment = "production"
+    managed_by  = "terraform"
+  }
+}
+
+# Output deployment information
+output "deployment_id" {
+  value = cimp_deployment.web_cluster.id
+}
+
+output "deployment_endpoints" {
+  value = cimp_deployment.web_cluster.endpoints
+}
+        </div>
+    </div>
+
+    <div class="section" id="appendix">
+        <h2>8. Appendix</h2>
+
+        <h3>8.1 Supported Cloud Providers and Regions</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Provider</th>
+                    <th>Supported Regions</th>
+                    <th>API Version</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amazon Web Services</td>
+                    <td>All commercial regions</td>
+                    <td>2023-05-31</td>
+                    <td>GovCloud regions require special configuration</td>
+                </tr>
+                <tr>
+                    <td>Microsoft Azure</td>
+                    <td>Global, China, Government</td>
+                    <td>2023-04-01</td>
+                    <td>China regions have limited feature support</td>
+                </tr>
+                <tr>
+                    <td>Google Cloud Platform</td>
+                    <td>All regions except restricted</td>
+                    <td>v1</td>
+                    <td>Some services require beta API access</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>8.2 Version History</h3>
+        <ul>
+            <li><strong>v3.2.1 (October 2024):</strong> Security enhancements, bug fixes for Azure integration</li>
+            <li><strong>v3.2.0 (September 2024):</strong> Added GCP support, improved cost analytics</li>
+            <li><strong>v3.1.0 (August 2024):</strong> Enhanced monitoring capabilities, RBAC improvements</li>
+            <li><strong>v3.0.0 (July 2024):</strong> Major release with redesigned architecture</li>
+        </ul>
+
+        <div class="note">
+            <p><strong>Documentation Feedback:</strong> For questions, corrections, or suggestions regarding this documentation, please contact the Platform Engineering team at platform-docs@company.com or create an issue in our documentation repository.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; padding-top: 20px; border-top: 2px solid #dee2e6; text-align: center; font-size: 10pt; color: #6c757d;">
+        <p>Cloud Infrastructure Management Platform - Technical Documentation<br>
+        Version 3.2.1 | © 2024 Company Name | Confidential and Proprietary<br>
+        Last Updated: October 20, 2024 | Document ID: CIMP-DOC-001</p>
+    </div>
+</body>
+</html>

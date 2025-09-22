@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(curl:*)",
+      "Bash(chmod:*)",
+      "Bash(find:*)",
+      "Bash(python3:*)",
+      "Bash(pkill:*)",
+      "Bash(kill:*)",
+      "Bash(netstat:*)",
+      "Bash(node server.js)",
+      "Bash(cat:*)",
+      "Bash(for i in {1..3})",
+      "Bash(done)",
+      "WebSearch",
+      "Bash(source:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs -r kill -9)",
+      "Bash(env)",
+      "Bash(az account show:*)",
+      "Bash(az role assignment list:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
