@@ -925,7 +925,7 @@ audio::-webkit-media-controls-mute-button {
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1004,27 +1004,10 @@ audio::-webkit-media-controls-mute-button {
 .scenario-description {
   color: var(--color-text-secondary);
   line-height: 1.6;
-  margin: 0 0 20px;
+  margin: 0;
   font-size: 1rem;
 }
 
-.scenario-metrics {
-  display: grid;
-  gap: 12px;
-}
-
-.metric-item {
-  background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-secondary);
-  border-radius: var(--radius-md);
-  padding: 12px 16px;
-  font-size: 0.9rem;
-  color: var(--color-text-primary);
-}
-
-.metric-item strong {
-  font-weight: 600;
-}
 
 .business-modal__footer {
   background: var(--color-bg-secondary);
@@ -1068,15 +1051,60 @@ audio::-webkit-media-controls-mute-button {
     margin: 20px -25px -25px;
     padding: 20px 25px;
   }
+}
 
-  .scenario-metrics {
-    gap: 8px;
-  }
+/* Light theme improvements */
+html[data-theme="light"] .business-modal__container {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
 
-  .metric-item {
-    padding: 10px 14px;
-    font-size: 0.85rem;
-  }
+html[data-theme="light"] .business-modal__backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="light"] .business-scenario {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+html[data-theme="light"] .business-scenario:hover {
+  background: #f1f5f9;
+  border-color: #667eea;
+}
+
+html[data-theme="light"] .scenario-title {
+  color: #1a202c;
+}
+
+html[data-theme="light"] .scenario-description {
+  color: #4a5568;
+}
+
+html[data-theme="light"] .business-modal__title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html[data-theme="light"] .business-modal__close {
+  color: #718096;
+}
+
+html[data-theme="light"] .business-modal__close:hover {
+  background: #f7fafc;
+  color: #2d3748;
+}
+
+html[data-theme="light"] .business-modal__footer {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+html[data-theme="light"] .business-modal__footer p {
+  color: #718096;
 }
 
 /* Dark theme support */
@@ -1098,7 +1126,17 @@ html[data-theme="dark"] .business-scenario:hover {
   border-color: var(--color-primary);
 }
 
-html[data-theme="dark"] .metric-item {
-  background: var(--color-bg-primary);
-  border-color: var(--color-border-primary);
+html[data-theme="dark"] .scenario-title {
+  color: var(--color-text-primary);
+}
+
+html[data-theme="dark"] .scenario-description {
+  color: var(--color-text-secondary);
+}
+
+html[data-theme="dark"] .business-modal__title {
+  background: linear-gradient(135deg, #8b9cf7 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
