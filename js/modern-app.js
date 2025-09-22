@@ -13,164 +13,187 @@ class ModernAIApp {
     // Business Value Proposition Data
     getBusinessScenarios() {
         return {
-            'openai': {
-                title: 'Azure OpenAI Service - Business Value',
+            'text-generation': {
+                title: 'Text Generation - Business Implementation',
                 scenarios: [
                     {
-                        title: 'Customer Service Automation',
-                        description: 'Deploy AI-powered chatbots that handle 80% of customer inquiries, reducing support costs by 60% while providing 24/7 availability.',
-                        roi: 'ROI: 300% within 12 months',
-                        implementation: 'Implementation: 2-4 weeks integration with existing CRM systems'
+                        title: 'Content Marketing Automation',
+                        description: 'Generate high-quality blog posts, social media content, and marketing copy at scale, reducing content creation costs by 70% while maintaining brand consistency.',
+                        roi: 'ROI: $200K+ annual savings on content creation',
+                        implementation: 'Implementation: 2-3 weeks integration with CMS and marketing platforms'
                     },
                     {
-                        title: 'Content Generation & Marketing',
-                        description: 'Automate content creation for marketing campaigns, social media, and documentation, increasing content output by 400%.',
-                        roi: 'ROI: 250% cost savings on content creation',
-                        implementation: 'Implementation: Seamless API integration with content management systems'
+                        title: 'Technical Documentation Generation',
+                        description: 'Automatically create user manuals, API documentation, and product guides from technical specifications, reducing documentation time by 80%.',
+                        roi: 'ROI: 150% faster product releases',
+                        implementation: 'Implementation: Integration with development workflows and documentation systems'
                     },
                     {
-                        title: 'Code Development Assistance',
-                        description: 'Accelerate software development with AI-assisted coding, reducing development time by 30-50% and improving code quality.',
-                        roi: 'ROI: $500K+ annual savings per 10-developer team',
-                        implementation: 'Implementation: IDE integration and developer workflow optimization'
+                        title: 'Personalized Communication',
+                        description: 'Generate personalized emails, proposals, and communications for different customer segments, increasing engagement rates by 45%.',
+                        roi: 'ROI: 300% improvement in conversion rates',
+                        implementation: 'Implementation: CRM integration with customer data and templates'
                     }
                 ]
             },
-            'openai-realtime': {
-                title: 'Speech & Audio Generation - Business Value',
+            'ai-chat': {
+                title: 'AI Chat Interface - Business Implementation',
                 scenarios: [
                     {
-                        title: 'Accessibility Solutions',
-                        description: 'Create inclusive digital experiences with real-time text-to-speech and speech-to-text capabilities, expanding market reach by 15%.',
-                        roi: 'ROI: Increased customer base and regulatory compliance',
-                        implementation: 'Implementation: Web and mobile app integration with accessibility APIs'
+                        title: 'Customer Support Automation',
+                        description: 'Deploy intelligent chatbots that handle 85% of customer inquiries with human-level accuracy, reducing support costs by 60% while providing 24/7 availability.',
+                        roi: 'ROI: $2M+ annual savings for enterprise support teams',
+                        implementation: 'Implementation: 4-6 weeks integration with existing support platforms'
                     },
                     {
-                        title: 'Call Center Automation',
-                        description: 'Transform customer support with AI voice agents that handle routine calls, reducing wait times by 70% and costs by 45%.',
-                        roi: 'ROI: $2M+ annual savings for enterprise call centers',
-                        implementation: 'Implementation: 6-8 weeks telephony system integration'
+                        title: 'Employee Self-Service Portal',
+                        description: 'Create internal AI assistants for HR, IT support, and company policies, reducing internal help desk tickets by 70%.',
+                        roi: 'ROI: $500K+ annual productivity gains',
+                        implementation: 'Implementation: Integration with internal knowledge bases and systems'
                     },
                     {
-                        title: 'Multilingual Support',
-                        description: 'Provide instant voice translation and multilingual support, enabling global market expansion without language barriers.',
-                        roi: 'ROI: 200% faster international market entry',
-                        implementation: 'Implementation: Real-time translation API integration'
+                        title: 'Sales Qualification Assistant',
+                        description: 'Qualify leads and schedule meetings through conversational AI, increasing sales team efficiency by 40% and lead conversion by 25%.',
+                        roi: 'ROI: 250% increase in qualified leads',
+                        implementation: 'Implementation: CRM integration with lead scoring and scheduling systems'
                     }
                 ]
             },
-            'image-generation': {
-                title: 'Image Generation - Business Value',
+            'content-summarization': {
+                title: 'Content Summarization - Business Implementation',
                 scenarios: [
                     {
-                        title: 'Marketing Content Creation',
-                        description: 'Generate custom marketing visuals, product mockups, and campaign assets instantly, reducing creative production costs by 70%.',
-                        roi: 'ROI: $150K+ annual savings on design resources',
-                        implementation: 'Implementation: Brand guideline integration with DALL-E 3 API'
+                        title: 'Executive Briefing Automation',
+                        description: 'Automatically summarize reports, market research, and meeting transcripts for executive decision-making, saving 15+ hours per week per executive.',
+                        roi: 'ROI: $300K+ annual executive time savings',
+                        implementation: 'Implementation: Integration with document management and calendar systems'
                     },
                     {
-                        title: 'E-commerce Product Visualization',
-                        description: 'Create product variations, lifestyle images, and contextual visuals without photoshoots, increasing conversion rates by 25%.',
-                        roi: 'ROI: 40% increase in online sales conversion',
-                        implementation: 'Implementation: E-commerce platform integration for automated image generation'
+                        title: 'Legal Document Processing',
+                        description: 'Summarize contracts, legal briefs, and regulatory documents, reducing review time by 75% while maintaining accuracy.',
+                        roi: 'ROI: $1M+ annual legal cost savings',
+                        implementation: 'Implementation: 6-8 weeks integration with legal document systems'
                     },
                     {
-                        title: 'Rapid Prototyping & Design',
-                        description: 'Accelerate design iterations and concept visualization, reducing design cycle time from weeks to hours.',
-                        roi: 'ROI: 80% faster time-to-market for new products',
-                        implementation: 'Implementation: Design workflow integration with existing tools'
+                        title: 'Research & Intelligence',
+                        description: 'Process vast amounts of market research, competitor analysis, and industry reports into actionable insights.',
+                        roi: 'ROI: 400% faster market analysis and strategic decisions',
+                        implementation: 'Implementation: Integration with research databases and analytics platforms'
                     }
                 ]
             },
-            'speech-services': {
-                title: 'Speech Services - Business Value',
+            'speech-audio-generation': {
+                title: 'Speech & Audio Generation - Business Implementation',
                 scenarios: [
                     {
-                        title: 'Voice Interface Development',
-                        description: 'Build intuitive voice-controlled applications and IoT devices, capturing the growing $8B voice interface market.',
-                        roi: 'ROI: 150% increase in user engagement',
-                        implementation: 'Implementation: SDK integration for voice-enabled applications'
+                        title: 'Voice-Enabled Applications',
+                        description: 'Create voice interfaces for mobile apps, smart devices, and accessibility features, capturing the growing $11B voice tech market.',
+                        roi: 'ROI: 200% increase in user engagement and accessibility compliance',
+                        implementation: 'Implementation: 3-4 weeks SDK integration with existing applications'
                     },
                     {
-                        title: 'Meeting Transcription & Analytics',
-                        description: 'Automate meeting documentation and extract actionable insights, saving 10+ hours per week per employee.',
-                        roi: 'ROI: $50K+ annual productivity gains per team',
-                        implementation: 'Implementation: Meeting platform integration with transcription APIs'
+                        title: 'Audio Content Creation',
+                        description: 'Generate podcasts, audiobooks, and voiceovers from text content, reducing audio production costs by 85%.',
+                        roi: 'ROI: $150K+ annual savings on voice talent and studio costs',
+                        implementation: 'Implementation: Content management integration with voice synthesis'
                     },
                     {
-                        title: 'Real-time Translation Services',
-                        description: 'Enable seamless global communication with instant speech translation, breaking down language barriers in business.',
-                        roi: 'ROI: 300% improvement in international collaboration efficiency',
-                        implementation: 'Implementation: Communication platform integration'
+                        title: 'Real-time Customer Interactions',
+                        description: 'Enable natural voice conversations in customer service, sales calls, and virtual assistants with human-like quality.',
+                        roi: 'ROI: 300% improvement in customer satisfaction scores',
+                        implementation: 'Implementation: Communication platform integration with real-time processing'
                     }
                 ]
             },
-            'vision-services': {
-                title: 'Vision Services - Business Value',
+            'speech-translation': {
+                title: 'Speech Translation - Business Implementation',
                 scenarios: [
                     {
-                        title: 'Quality Control Automation',
-                        description: 'Implement AI-powered visual inspection systems that detect defects with 99.5% accuracy, reducing quality issues by 85%.',
-                        roi: 'ROI: $2M+ annual savings in quality control costs',
-                        implementation: 'Implementation: Manufacturing line integration with computer vision APIs'
-                    },
-                    {
-                        title: 'Document Processing Automation',
-                        description: 'Extract and process information from invoices, contracts, and forms automatically, reducing processing time by 90%.',
-                        roi: 'ROI: 400% efficiency improvement in document workflows',
-                        implementation: 'Implementation: Document management system integration'
-                    },
-                    {
-                        title: 'Retail Analytics & Insights',
-                        description: 'Analyze customer behavior, inventory levels, and store layouts through computer vision, optimizing sales by 20%.',
-                        roi: 'ROI: $500K+ annual revenue increase per store',
-                        implementation: 'Implementation: Camera system integration with analytics platform'
-                    }
-                ]
-            },
-            'language-services': {
-                title: 'Language Services - Business Value',
-                scenarios: [
-                    {
-                        title: 'Intelligent Document Analysis',
-                        description: 'Automatically classify, extract insights, and process legal documents, contracts, and reports, reducing review time by 75%.',
-                        roi: 'ROI: $1M+ annual savings in legal and compliance costs',
-                        implementation: 'Implementation: Document management and workflow system integration'
-                    },
-                    {
-                        title: 'Sentiment Analysis & Brand Monitoring',
-                        description: 'Monitor brand sentiment across social media and customer feedback in real-time, enabling proactive reputation management.',
-                        roi: 'ROI: 200% improvement in brand response time',
-                        implementation: 'Implementation: Social media monitoring and CRM integration'
-                    },
-                    {
-                        title: 'Automated Content Moderation',
-                        description: 'Scale content moderation across platforms with AI-powered text analysis, reducing moderation costs by 60%.',
-                        roi: 'ROI: $800K+ annual savings on moderation workforce',
-                        implementation: 'Implementation: Platform API integration for real-time content analysis'
-                    }
-                ]
-            },
-            'translator-service': {
-                title: 'Translator Service - Business Value',
-                scenarios: [
-                    {
-                        title: 'Global Market Expansion',
-                        description: 'Instantly localize content, websites, and applications for global markets, reducing time-to-market by 80%.',
-                        roi: 'ROI: 350% faster international expansion',
-                        implementation: 'Implementation: CMS and application integration for automatic translation'
+                        title: 'Global Communication Platform',
+                        description: 'Break down language barriers in international meetings and conferences with real-time speech translation, enabling seamless global collaboration.',
+                        roi: 'ROI: 400% improvement in international project efficiency',
+                        implementation: 'Implementation: Video conferencing and communication platform integration'
                     },
                     {
                         title: 'Multilingual Customer Support',
-                        description: 'Provide customer support in 100+ languages without hiring multilingual staff, expanding customer base globally.',
+                        description: 'Provide customer support in 100+ languages without hiring multilingual staff, expanding global market reach instantly.',
                         roi: 'ROI: 250% increase in international customer satisfaction',
-                        implementation: 'Implementation: Support platform integration with real-time translation'
+                        implementation: 'Implementation: Call center and support platform integration'
                     },
                     {
-                        title: 'Document Translation Automation',
-                        description: 'Automate translation of technical documentation, legal contracts, and business materials with enterprise-grade accuracy.',
-                        roi: 'ROI: 90% reduction in translation costs and time',
-                        implementation: 'Implementation: Document workflow integration with translation APIs'
+                        title: 'Travel & Tourism Services',
+                        description: 'Enable instant translation for hospitality services, tour guides, and travel assistance, enhancing tourist experiences.',
+                        roi: 'ROI: 180% increase in international tourist satisfaction',
+                        implementation: 'Implementation: Mobile app and service platform integration'
+                    }
+                ]
+            },
+            'dalle3-image-generation': {
+                title: 'DALL-E 3 Image Generation - Business Implementation',
+                scenarios: [
+                    {
+                        title: 'Marketing Asset Generation',
+                        description: 'Create custom marketing visuals, social media content, and advertising assets at scale, reducing creative production costs by 75% while maintaining brand consistency.',
+                        roi: 'ROI: $300K+ annual savings on design and photography',
+                        implementation: 'Implementation: Marketing platform integration with brand guidelines'
+                    },
+                    {
+                        title: 'E-commerce Product Imagery',
+                        description: 'Generate product lifestyle images, variations, and contextual visuals without expensive photoshoots, increasing conversion rates by 35%.',
+                        roi: 'ROI: 50% increase in online sales and 80% reduction in photography costs',
+                        implementation: 'Implementation: E-commerce platform integration with product catalogs'
+                    },
+                    {
+                        title: 'Concept & Prototype Visualization',
+                        description: 'Rapidly visualize product concepts, architectural designs, and creative ideas, accelerating innovation cycles by 60%.',
+                        roi: 'ROI: 400% faster concept-to-prototype timeline',
+                        implementation: 'Implementation: Design workflow integration with creative tools'
+                    }
+                ]
+            },
+            'image-analysis': {
+                title: 'Image Analysis - Business Implementation',
+                scenarios: [
+                    {
+                        title: 'Quality Control Automation',
+                        description: 'Implement AI-powered visual inspection systems that detect defects and anomalies with 99.7% accuracy, eliminating manual quality checks.',
+                        roi: 'ROI: $2.5M+ annual savings in quality control and defect costs',
+                        implementation: 'Implementation: Manufacturing line integration with computer vision systems'
+                    },
+                    {
+                        title: 'Retail Inventory Management',
+                        description: 'Automatically monitor shelf stock, product placement, and visual merchandising through computer vision, optimizing retail operations.',
+                        roi: 'ROI: 30% reduction in out-of-stock incidents and improved sales',
+                        implementation: 'Implementation: Camera system integration with inventory management'
+                    },
+                    {
+                        title: 'Content Moderation & Safety',
+                        description: 'Automatically detect inappropriate content, safety violations, and brand compliance across digital platforms at scale.',
+                        roi: 'ROI: 90% reduction in manual moderation costs',
+                        implementation: 'Implementation: Platform integration with content management systems'
+                    }
+                ]
+            },
+            'text-recognition-ocr': {
+                title: 'Text Recognition (OCR) - Business Implementation',
+                scenarios: [
+                    {
+                        title: 'Document Digitization & Processing',
+                        description: 'Automatically extract and process text from invoices, contracts, and forms, reducing manual data entry by 95% and processing time by 85%.',
+                        roi: 'ROI: $1.2M+ annual savings in document processing costs',
+                        implementation: 'Implementation: Document management system integration with workflow automation'
+                    },
+                    {
+                        title: 'Identity Verification & KYC',
+                        description: 'Extract and verify information from IDs, passports, and financial documents for automated onboarding and compliance.',
+                        roi: 'ROI: 80% faster customer onboarding and improved compliance',
+                        implementation: 'Implementation: Banking and fintech platform integration'
+                    },
+                    {
+                        title: 'Receipt & Expense Management',
+                        description: 'Automatically process expense receipts, invoices, and financial documents for accounting and reimbursement systems.',
+                        roi: 'ROI: 70% reduction in expense processing time and errors',
+                        implementation: 'Implementation: Accounting software integration with mobile capture'
                     }
                 ]
             }
@@ -428,9 +451,9 @@ class ModernAIApp {
         const businessInfoIcons = document.querySelectorAll('.business-info-icon');
         businessInfoIcons.forEach(icon => {
             icon.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent service card click
-                const service = icon.dataset.service;
-                this.openBusinessModal(service);
+                e.stopPropagation(); // Prevent service card click or showcase interaction
+                const feature = icon.dataset.feature;
+                this.openBusinessModal(feature);
             });
 
             // Hover effect for info icons
@@ -919,14 +942,14 @@ class ModernAIApp {
         });
     }
 
-    openBusinessModal(service) {
+    openBusinessModal(feature) {
         const modal = document.getElementById('businessValueModal');
         const modalTitle = document.getElementById('businessModalTitle');
         const modalContent = document.getElementById('businessModalContent');
 
         if (!modal || !modalTitle || !modalContent) return;
 
-        const businessData = this.businessScenarios[service];
+        const businessData = this.businessScenarios[feature];
         if (!businessData) return;
 
         // Set title

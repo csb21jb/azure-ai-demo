@@ -40,6 +40,9 @@ class ServiceShowcase {
             });
         }
 
+        // Business info icon handlers
+        this.setupBusinessInfoIcons();
+
         // Service-specific event listeners
         switch (service) {
             case 'openai':
@@ -321,7 +324,14 @@ class ServiceShowcase {
 
                         <!-- Speech-to-Text and Translation Service -->
                         <div class="demo-section demo-card">
-                            <h3 class="demo-section__title">Speech Translation Service</h3>
+                            <h3 class="demo-section__title">
+                                Speech Translation Service
+                                <button class="business-info-icon" data-feature="speech-translation" aria-label="View business implementation scenarios" style="background: none; border: none; cursor: pointer; padding: 4px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.2s; margin-left: 8px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </button>
+                            </h3>
                             <p class="demo-section__description">
                                 Speak or type in any language and get instant translations using Azure Speech Services and Azure Translator
                             </p>
@@ -505,7 +515,14 @@ class ServiceShowcase {
                     <div class="showcase__content showcase__content--fullwidth">
                         <!-- Image Generation Demo -->
                         <div class="demo-section demo-card">
-                            <h3 class="demo-section__title">DALL-E 3 Image Generation</h3>
+                            <h3 class="demo-section__title">
+                                DALL-E 3 Image Generation
+                                <button class="business-info-icon" data-feature="dalle3-image-generation" aria-label="View business implementation scenarios" style="background: none; border: none; cursor: pointer; padding: 4px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.2s; margin-left: 8px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </button>
+                            </h3>
                             <p class="demo-section__description">
                                 Describe your vision in text and watch as DALL-E 3 creates a unique, high-quality image
                             </p>
@@ -612,7 +629,14 @@ class ServiceShowcase {
                     <div class="showcase__content">
                         <!-- Image Analysis Demo -->
                         <div class="demo-section">
-                            <h3 class="demo-section__title">Image Analysis</h3>
+                            <h3 class="demo-section__title">
+                                Image Analysis
+                                <button class="business-info-icon" data-feature="image-analysis" aria-label="View business implementation scenarios" style="background: none; border: none; cursor: pointer; padding: 4px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.2s; margin-left: 8px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </button>
+                            </h3>
                             <p class="demo-section__description">
                                 Upload an image to get detailed descriptions, tags, and object detection
                             </p>
@@ -643,7 +667,14 @@ class ServiceShowcase {
 
                         <!-- OCR Demo -->
                         <div class="demo-section">
-                            <h3 class="demo-section__title">Text Recognition (OCR)</h3>
+                            <h3 class="demo-section__title">
+                                Text Recognition (OCR)
+                                <button class="business-info-icon" data-feature="text-recognition-ocr" aria-label="View business implementation scenarios" style="background: none; border: none; cursor: pointer; padding: 4px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.2s; margin-left: 8px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                                    </svg>
+                                </button>
+                            </h3>
                             <p class="demo-section__description">
                                 Extract text from images, documents, and handwritten notes
                             </p>
@@ -1588,6 +1619,33 @@ class ServiceShowcase {
                 await this.handleTextToSpeech(text);
             });
         }
+    }
+
+    // Business info icon handlers
+    setupBusinessInfoIcons() {
+        const businessInfoIcons = document.querySelectorAll('.business-info-icon');
+        businessInfoIcons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent any parent element clicks
+                const feature = icon.dataset.feature;
+                if (window.app && window.app.openBusinessModal) {
+                    window.app.openBusinessModal(feature);
+                }
+            });
+
+            // Hover effect for info icons
+            icon.addEventListener('mouseenter', () => {
+                icon.style.opacity = '1';
+                icon.style.transform = 'scale(1.1)';
+                icon.style.background = 'rgba(102, 126, 234, 0.1)';
+            });
+
+            icon.addEventListener('mouseleave', () => {
+                icon.style.opacity = '0.7';
+                icon.style.transform = 'scale(1)';
+                icon.style.background = 'none';
+            });
+        });
     }
 
     // Event Listeners for Language Service
