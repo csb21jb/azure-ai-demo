@@ -233,7 +233,7 @@ show_next_steps() {
     echo
     print_status "Next steps:"
     echo "  1. Start the HTTPS server:"
-    echo "     ${GREEN}python3 start_https.py${NC}"
+    echo "     ${GREEN}python3 start.py${NC}"
     echo
     echo "  2. Open your browser and go to:"
     echo "     ${GREEN}https://localhost:8443${NC}"
@@ -253,9 +253,9 @@ main() {
     echo
 
     # Check if we're in the right directory
-    if [ ! -f "index.html" ] || [ ! -f "start_https.py" ]; then
+    if [ ! -f "index.html" ] || [ ! -f "start.py" ]; then
         print_error "This script must be run from the Azure AI Services project directory"
-        print_status "Please navigate to the directory containing index.html and try again"
+        print_status "Please navigate to the directory containing index.html and start.py and try again"
         exit 1
     fi
 
@@ -292,4 +292,4 @@ main() {
 }
 
 # Run main function
-main "$@"
+main "$@"%   
