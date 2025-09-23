@@ -4,6 +4,20 @@ A comprehensive demonstration application showcasing Microsoft Azure AI services
 
 > **🎥 Demo Videos & Screenshots**: See this project in action through detailed documentation and video demonstrations below.
 >
+## OpenAI Demo
+
+https://github.com/user-attachments/assets/f2e86e22-9cab-46fa-b55b-e6367bebf40e
+
+## Speech Services
+
+https://github.com/user-attachments/assets/182ccfc9-d970-4fb1-8f28-22dc2cc97522
+
+## Image Generation
+
+https://github.com/user-attachments/assets/30343516-a07b-4687-8ded-9ae45c258ca1
+
+
+
 > **⚡ Live Demo**: Contact for private demo access due to Azure API rate limiting (optimized for 5-10 concurrent users).
 
 ## Features
