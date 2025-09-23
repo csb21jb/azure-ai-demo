@@ -34,6 +34,9 @@ https://github.com/user-attachments/assets/30343516-a07b-4687-8ded-9ae45c258ca1
 
 ### 🚀 Quick Start (Recommended)
 
+1. Ensure you change the .env.example to .env and add the proper endpoints and API Keys to the proper location
+2. Get the API Keys from azure services - go sign up NOW, you get Azure credits for FREE!
+   
 ```bash
 # Start the application
 python3 start.py
