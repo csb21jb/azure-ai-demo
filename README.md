@@ -32,29 +32,68 @@ https://github.com/user-attachments/assets/30343516-a07b-4687-8ded-9ae45c258ca1
 
 ## Quick Start
 
-### 🚀 Quick Start (Recommended)
+### Prerequisites
+- Python 3.7 or higher
+- Git (for cloning the repository)
 
-1. Ensure you change the .env.example to .env and add the proper endpoints and API Keys to the proper location
-2. Get the API Keys from azure services - go sign up NOW, you get Azure credits for FREE!
-   
+### 🚀 Recommended Setup (with Virtual Environment)
+
 ```bash
+# 1. Clone the repository (if you haven't already)
+git clone <repository-url>
+cd azure-ai-demo
+
+# 2. Create and activate a virtual environment
+python3 -m venv .venv
+
+# On Linux/macOS:
+source .venv/bin/activate
+
+# On Windows:
+# .venv\Scripts\activate
+
+# 3. Install Python dependencies
+pip install -r requirements.txt
+
+# 4. Set up your environment variables
+cp .env.example .env
+# Edit .env with your Azure credentials
+
+# 5. Set up HTTPS certificates (recommended)
+chmod +x setup-https.sh && ./setup-https.sh
+
+# 6. Start the application
+python3 start.py
+```
+
+The application will automatically start on **https://localhost:8443**
+
+> **Note**: Your browser will show a security warning (normal for development). Click "Advanced" → "Proceed to localhost".
+
+### 🔄 Starting the Application (after initial setup)
+
+Once you've completed the initial setup, you only need to:
+
+```bash
+# Activate virtual environment
+source .venv/bin/activate  # Linux/macOS
+# .venv\Scripts\activate   # Windows
+
 # Start the application
 python3 start.py
 ```
 
-The application will automatically:
-- ✅ Install dependencies if needed
-- ✅ Set up HTTPS with self-signed certificates
-- ✅ Start on https://localhost:8443
-
-> **Note**: Your browser will show a security warning (normal for development). Click "Advanced" → "Proceed to localhost".
-
 ### Alternative Setup Options
 
-#### Option 1: One-Command HTTPS Setup
+#### Option 1: Quick Start Without Virtual Environment
 ```bash
-# Automatically install everything and set up HTTPS
+# Install dependencies globally (not recommended)
+pip3 install -r requirements.txt
+
+# Set up HTTPS
 chmod +x setup-https.sh && ./setup-https.sh
+
+# Start the application
 python3 start.py
 ```
 
@@ -73,17 +112,25 @@ Install the "Live Server" extension in VS Code and right-click on `index.html` �
 ### 🔧 Troubleshooting
 
 **If setup fails:**
-- **Ubuntu/Debian**: `sudo apt-get install openssl python3-pip`
-- **CentOS/RHEL**: `sudo yum install openssl python3-pip`
-- **macOS**: Install [Homebrew](https://brew.sh/) first
+- **Ubuntu/Debian**: `sudo apt-get install python3-venv python3-pip openssl`
+- **CentOS/RHEL**: `sudo yum install python3-venv python3-pip openssl`
+- **macOS**: Install [Homebrew](https://brew.sh/) first, then `brew install python openssl`
 
 **Common issues:**
-- **Permission errors**: Try running with `sudo`
-- **Port in use**: Change port in environment variables
+- **Virtual environment activation fails**: Make sure you're in the project directory
+- **Permission errors**: Don't use `sudo` with pip when in a virtual environment
+- **Port in use**: Change port in environment variables or `.env` file
 - **Python not found**: Install Python 3.7+ from [python.org](https://python.org)
+- **Dependencies fail to install**: Try upgrading pip: `pip install --upgrade pip`
 
 ## Usage
 
+### Initial Setup
+1. **Virtual Environment**: Always activate your virtual environment before working with the project
+2. **Environment Configuration**: Edit your `.env` file with valid Azure service credentials
+3. **HTTPS Setup**: Run the setup script once to generate SSL certificates for secure local development
+
+### Application Usage
 1. **Landing Page**: Start with the hero section featuring an interactive search and quick actions
 2. **Service Cards**: Click on any AI service card to open its interactive demonstration
 3. **Try Demos**: Each service includes multiple demo sections with sample data and real-time simulations
