@@ -1,6 +1,10 @@
 # Azure AI Services Showcase
 
-A production-ready demonstration application showcasing Microsoft Azure AI services integration with proper security practices and vertical slice architecture.
+A comprehensive demonstration application showcasing Microsoft Azure AI services integration with modern web technologies and Microsoft Fluent Design System.
+
+> **🎥 Demo Videos & Screenshots**: See this project in action through detailed documentation and video demonstrations below.
+>
+> **⚡ Live Demo**: Contact for private demo access due to Azure API rate limiting (optimized for 5-10 concurrent users).
 
 ## Features
 
@@ -52,61 +56,51 @@ ai-services/
 
 ## Quick Start
 
-### 🚀 One-Command HTTPS Setup (Recommended)
-
-For the complete experience with microphone access and all browser features:
+### 🚀 Quick Start (Recommended)
 
 ```bash
-# Automatically install everything and set up HTTPS
-chmod +x setup-https.sh && ./setup-https.sh
+# Start the application
+python3 start.py
 ```
 
-Then start the server:
-```bash
-python3 start_https.py
-```
-
-Access at: **https://localhost:8443**
+The application will automatically:
+- ✅ Install dependencies if needed
+- ✅ Set up HTTPS with self-signed certificates
+- ✅ Start on https://localhost:8443
 
 > **Note**: Your browser will show a security warning (normal for development). Click "Advanced" → "Proceed to localhost".
 
 ### Alternative Setup Options
 
-#### Option 1: Manual HTTPS Setup
+#### Option 1: One-Command HTTPS Setup
 ```bash
-# Start with HTTPS (requires OpenSSL installed)
-python3 start_https.py
+# Automatically install everything and set up HTTPS
+chmod +x setup-https.sh && ./setup-https.sh
+python3 start.py
 ```
 
-#### Option 2: HTTP Mode (Limited Features)
-```bash
-# Basic testing without microphone access
-python3 start_http.py
-```
-Access at: http://localhost:8000
-
-#### Option 3: Node.js Server
+#### Option 2: Node.js Server
 ```bash
 # Using the included server.js
 node server.js
 ```
 
-#### Option 4: Simple File Server
+#### Option 3: Direct File Access
 Open `index.html` directly in your web browser, or serve the files using any static file server.
 
-#### Option 5: Live Server (VS Code)
+#### Option 4: VS Code Live Server
 Install the "Live Server" extension in VS Code and right-click on `index.html` → "Open with Live Server"
 
 ### 🔧 Troubleshooting
 
-**If the setup script fails:**
+**If setup fails:**
 - **Ubuntu/Debian**: `sudo apt-get install openssl python3-pip`
 - **CentOS/RHEL**: `sudo yum install openssl python3-pip`
-- **macOS**: Install [Homebrew](https://brew.sh/) first, then run the script
+- **macOS**: Install [Homebrew](https://brew.sh/) first
 
 **Common issues:**
-- **Permission errors**: Try `sudo ./setup-https.sh`
-- **Port 8443 in use**: The script will show how to change the port
+- **Permission errors**: Try running with `sudo`
+- **Port in use**: Change port in environment variables
 - **Python not found**: Install Python 3.7+ from [python.org](https://python.org)
 
 For detailed HTTPS configuration, see [HTTPS_SETUP.md](HTTPS_SETUP.md).
@@ -176,12 +170,14 @@ The application follows Microsoft's Fluent Design System principles:
 - **Reduced Motion**: Respects user's motion preferences
 - **Focus Management**: Clear focus indicators and logical tab order
 
-## Performance
+## Performance & Scalability
 
 - **Lightweight**: No external dependencies or frameworks
 - **Fast Loading**: Optimized CSS and JavaScript with minimal file sizes
 - **Responsive Images**: SVG icons and optimized assets
 - **Efficient Animations**: CSS-based animations with hardware acceleration
+- **Load Tested**: Capacity tested for concurrent users with Azure API rate limit considerations
+- **Production Ready**: Includes proper error handling and graceful degradation
 
 ## Customization
 
@@ -197,9 +193,29 @@ The design system is built with CSS custom properties, making it easy to customi
 }
 ```
 
+## Technical Architecture
+
+### Backend
+- **Python FastAPI**: High-performance async web framework
+- **Azure AI Services Integration**: Direct API integration with proper error handling
+- **Rate Limiting**: Built-in protection against API quota exhaustion
+- **Security**: HTTPS support with SSL certificates
+- **Monitoring**: Request logging and performance tracking
+
+### Frontend
+- **Pure JavaScript**: No framework dependencies for maximum compatibility
+- **Microsoft Fluent Design**: Authentic Microsoft visual language implementation
+- **Progressive Enhancement**: Works without JavaScript for basic functionality
+- **Mobile-First**: Responsive design optimized for all screen sizes
+
+### Deployment
+- **Self-Hosted**: Easy deployment on any server or container platform
+- **Environment Configuration**: Secure credential management with .env files
+- **Load Balancing Ready**: Stateless design for horizontal scaling
+
 ## Contributing
 
-This is a demonstration project showcasing Microsoft AI services. The dummy data and simulated responses are for educational purposes only.
+This is a demonstration project showcasing Microsoft AI services integration best practices. The project demonstrates real Azure API integration with proper error handling and rate limiting.
 
 ## License
 

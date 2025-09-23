@@ -2399,11 +2399,12 @@
                         </svg>
                     </div>
                     <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Speech & Audio Generation</h3>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Text-to-speech and speech-to-text audio generation with Azure OpenAI's API.</p>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Text-to-speech and speech-to-text audio generation with Azure OpenAI's API. Includes real-time translation capabilities for multilingual conversations.</p>
                     <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
                         <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Text to Speech</span>
                         <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Audio Generation</span>
                         <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Real-time Response</span>
+                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(240, 147, 251, 0.1); border-radius: 20px; font-size: 0.875rem;">Translation</span>
                     </div>
                     <!-- Hover Glow Effect -->
                     <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(240, 147, 251, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s;"></div>
@@ -2433,26 +2434,6 @@
                     <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s;"></div>
                 </div>
 
-                <!-- Service Card 4: Speech Services (Coming Soon) -->
-                <div class="service-card glass-card card-3d reveal" data-service="speech-services"
-                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
-                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
-                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                            <path d="M12 19v4"/>
-                            <path d="M8 23h8"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Speech Services</h3>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Enable applications to incorporate speech features like speech recognition, synthesis, and translation.</p>
-                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
-                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(0, 210, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Speech Recognition</span>
-                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(0, 210, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Speech Synthesis</span>
-                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(0, 210, 255, 0.1); border-radius: 20px; font-size: 0.875rem;">Translation</span>
-                    </div>
-                </div>
 
                 <!-- Service Card 5: Vision Services (Coming Soon) -->
                 <div class="service-card glass-card card-3d reveal" data-service="vision-services"
@@ -2491,29 +2472,11 @@
                     </div>
                 </div>
 
-                <!-- Service Card 7: Translator Service (Coming Soon) -->
-                <div class="service-card glass-card card-3d reveal" data-service="translator-service"
-                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
-                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
-                    <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                            <path d="M5 8l6 6M4 14l6-6-2-3M2 5h12M7 2h5l4 14-4 3-1-6"/>
-                            <path d="M10 16v4l2-1 2 1v-4"/>
-                        </svg>
-                    </div>
-                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 15px;">Translator Service</h3>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 25px;">Provides capabilities for translating text in multiple languages.</p>
-                    <div class="features" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px;">
-                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Multi-language</span>
-                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Real-time</span>
-                        <span class="feature-badge" style="padding: 6px 12px; background: rgba(102, 126, 234, 0.1); border-radius: 20px; font-size: 0.875rem;">Text Translation</span>
-                    </div>
-                </div>
 
                 <!-- Service Card 8: Document Intelligence -->
                 <div class="service-card glass-card card-3d reveal" data-service="document-intelligence"
-                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden;">
-                    <div class="status-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #00D084 0%, #00A86B 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Active</div>
+                     style="padding: 40px; border-radius: 24px; position: relative; overflow: hidden; opacity: 0.7;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">Coming Soon</div>
                     <div class="card-icon floating" style="width: 80px; height: 80px; margin-bottom: 30px; background: linear-gradient(135deg, #FD79A8 0%, #FDCB6E 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>

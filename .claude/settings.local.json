@@ -19,7 +19,8 @@
       "Bash(xargs -r kill -9)",
       "Bash(env)",
       "Bash(az account show:*)",
-      "Bash(az role assignment list:*)"
+      "Bash(az role assignment list:*)",
+      "Bash(rm:*)"
     ],
     "deny": [],
     "ask": []

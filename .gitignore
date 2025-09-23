@@ -156,7 +156,6 @@ visitor-stats.json
 
 CLAUDE.md
 .claude
-prd.md
 package-lock.json
 .gitignore
 *.copy*
