@@ -33,6 +33,7 @@ https://github.com/user-attachments/assets/30343516-a07b-4687-8ded-9ae45c258ca1
 ## Quick Start
 
 ### Prerequisites
+- You will need your own API endpoints in the .env file
 - Python 3.7 or higher
 - Git (for cloning the repository)
 
